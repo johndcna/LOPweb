@@ -7,3 +7,7 @@ Steps to run the program:
 5. Click "load unpacked extension"
 6. Select the folder where you saved this repository.
 
+Running the app:
+1. In the Google Chrome browser type : chrome://apps/
+2. Select LOP app
+
