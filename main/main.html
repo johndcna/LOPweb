@@ -8,7 +8,7 @@
         <link href="../css/style.css" rel="stylesheet">
     </head>
     
-    <body>        
+    <body ng-app="Mainapp">        
         <!-- Start Logo Section -->
         <section id="logo-section" class="text-center">
             <div class="container">
@@ -25,14 +25,14 @@
         
         
         <!-- Start Main Body Section -->
-        <div class="mainbody-section text-center">
+        <div class="mainbody-section text-center" ng-controller="myController">
             <div class="container">
                 <div class="row">
                     
                     <div class="col-lg-3">
                         
                         <div class="menu-item light-red">
-                            <a href="#feature-modal" data-toggle="modal">
+                            <a ng-click="login()" data-toggle="modal">
                                 <i class="fa fa-play-circle-o"></i>
                                 <p>Play Learning Object</p>
                             </a>
@@ -99,13 +99,16 @@
         </div>
         <!-- End Copyright Section -->
 
-        <script src="js/jquery-2.1.1.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="js/jquery.appear.js"></script>
-        <script src="js/contact_me.js"></script>
-        <script src="js/jqBootstrapValidation.js"></script>
-        <script src="js/modernizr.custom.js"></script>
-        <script src="js/script.js"></script>
+
+        <script src="../js/jquery-2.1.1.min.js"></script>
+        <script src="../js/angular.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="../js/jquery.appear.js"></script>
+        <script src="../js/contact_me.js"></script>
+        <script src="../js/jqBootstrapValidation.js"></script>
+        <script src="../js/modernizr.custom.js"></script>
+        <script src="../js/script.js"></script>
+        <script src="../js/main.js"></script>
 //start
     </body>
 
