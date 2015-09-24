@@ -2,7 +2,7 @@
 $( document ).ready(function() {
     //var x =JSON.parse(localStorage.getItem("jsonLogin"));
        // $('#userDiv').prepend('<div>'+x.username+'</div>');
-        alert("e");
+        console.log("e");
 });
 /*
     				// Retrieve
