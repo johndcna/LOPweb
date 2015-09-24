@@ -1,7 +1,7 @@
 .playlist {
     margin:0px;
     padding:0px;
-    background-color:#000;
+    background-color:#FFF;
 }
 
 .playzone {
@@ -17,4 +17,20 @@
 
 .row-player {
     height: 67.65em;
+}
+
+.name{
+height:20%;
+background:#fff;
+overflow-y:auto;
+}
+
+.list {
+    height:80%;
+background:#000;
+overflow-y:auto;
+}
+
+html, body{
+    height: 100%;
 }
