@@ -67,9 +67,11 @@
         	}
 
         	controllers.LOController = function($scope,$http){
+        		$scope.data = JSON.parse(localStorage.getItem("jsonLogin"));
+        		$scope.name = $scope.data.username;
+
         		$scope.test = function() {
-					var x =JSON.parse(localStorage.getItem("jsonLogin"));
-    						alert("title: "+x.username);
+					alert("title: "+$scope.data.username);
 				}
         	}
 		module.controller(controllers); 

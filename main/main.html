@@ -13,9 +13,13 @@
         <!-- LO Playlist -->
             <div class="col-md-2 playlist jumbotron container-fluid" style="padding:0px;"> 
                 <div class="row name">
+                Hello, {{data.firstName}} {{data.lastName}}
                 </div>
                 <div class="row list">
-                    <p> test test2 </p>
+                    <p>Learning Objects</p>
+                    <ul>
+                        <li style="color:white;" ng-repeat= "liableLearningObjects in data"> {{liableLearningObjects.title}}</li>
+                    </ul>>
                 </div>
 
             </div>
@@ -23,7 +27,6 @@
             <div class="col-md-10 playzone jumbotron">
                 <h1>????-? ?????</h1>
                 <p>Lorem ipsum bilat Lorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilat</p> 
-
             </div>
         </div>
     </div>
