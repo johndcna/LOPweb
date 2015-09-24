@@ -11,22 +11,26 @@
     <div class="container-fluid player">
         <div class="row row-player">
         <!-- LO Playlist -->
-            <div class="col-md-2 playlist jumbotron container-fluid" style="padding:0px;"> 
+            <div class="col-md-3 playlist jumbotron container-fluid" style="padding:0px;"> 
                 <div class="row name">
                 Hello, {{data.firstName}} {{data.lastName}}
                 </div>
                 <div class="row list">
                     <ul>
+<<<<<<< HEAD
                     <h4 style="color:white" ng-click="showLO()" ng-init="flag=false">Learning Objects</h4>
                         <div class="los" ng-if="flag">
                             <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> <div  ng-click="displayLO(x.title);">aasdf</div></li>
                         </div>
+=======
+                        <li style="color:white; text-align:initial;" ng-repeat= "liableLearningObjects in data.liableLearningObjects"> {{liableLearningObjects.title}}</li>
+>>>>>>> origin/master
                     </ul>
                 </div>
 
             </div>
              <!-- LO form -->
-            <div class="col-md-10 playzone jumbotron">
+            <div class="col-md-9 playzone jumbotron">
                 <h1>????-? ?????</h1>
                 <p>Lorem ipsum bilat Lorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilat</p> 
                 <button type="submit" class="btn btn-success btn-sm" style="width:50%;" ng-click = "myData.doClick(item, $event)">Login</button>
