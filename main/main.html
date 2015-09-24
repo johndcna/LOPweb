@@ -17,9 +17,9 @@
                 </div>
                 <div class="row list">
                     <ul>
-                    <h4 style="color:white"><a href="#" ng-click="showDetails =! showDetails">"Learning Objects<a></h4>
-                        <div class="los" ng-show="showDetails">
-                        <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> {{x.title}}</li>
+                    <h4 style="color:white" ng-click="showLO()" ng-init="flag=false">Learning Objects</h4>
+                        <div class="los" ng-if="flag">
+                            <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> <div  ng-click="displayLO(x.title);">aasdf</div></li>
                         </div>
                     </ul>
                 </div>
@@ -29,6 +29,7 @@
             <div class="col-md-10 playzone jumbotron">
                 <h1>????-? ?????</h1>
                 <p>Lorem ipsum bilat Lorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilat</p> 
+                <button type="submit" class="btn btn-success btn-sm" style="width:50%;" ng-click = "myData.doClick(item, $event)">Login</button>
             </div>
         </div>
     </div>

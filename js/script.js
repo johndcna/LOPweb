@@ -69,9 +69,18 @@
         	controllers.TaskbarController = function($scope,$http){
         		$scope.data = JSON.parse(localStorage.getItem("jsonLogin"));
         		$scope.name = $scope.data.username;
+        		$scope.flag;
 
-        		$scope.test = function() {
-					alert("title: "+$scope.data.username);
+        		$scope.showLO = function() {
+					//alert(" "+$scope.flag);
+					if($scope.flag == true){
+						$scope.flag = false;
+					}else{
+						$scope.flag = true;
+					}
+				}
+				$scope.displayLO = function(LOid){
+					alert(""+LOid);
 				}
 
         	}
