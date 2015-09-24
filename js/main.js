@@ -1,32 +1,9 @@
-var module       = angular.module("Mainapp", []);
-        var myController = module.controller("myController", function($scope,$http) {
-        	$scope.myData = {};
-			
-			$scope.login = function() {
-				var x =JSON.parse(localStorage.getItem("jsonLogin"));
-                            alert("title: "+x.title);
-			};
 
-				$scope.myData.doClick = function(item, event) {
-
-                var responsePromise = $http.get("json-test-data.json");
-
-                responsePromise.success(function(data, status, headers, config) {
-                     if (typeof(Storage) !== "undefined") {
- 					   // Store
-    					localStorage.setItem("jsonLogin", JSON.stringify(data));
-						} else {
-  						   alert("not supported");
-						}
-
-						window.location.href = "main/main.html";
-                });
-                responsePromise.error(function(data, status, headers, config) {
-                    alert("AJAX failed!");
-                });
-            }
-
-        });
+$( document ).ready(function() {
+    //var x =JSON.parse(localStorage.getItem("jsonLogin"));
+       // $('#userDiv').prepend('<div>'+x.username+'</div>');
+        alert("e");
+});
 /*
     				// Retrieve
     					var x =JSON.parse(localStorage.getItem("jsonLogin"));

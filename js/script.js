@@ -51,7 +51,6 @@
 		 											// Store
 		    										localStorage.setItem("jsonLogin", JSON.stringify(data));
 		    										window.location.href = "#/main";
-		    										alert(str);
 												} 
 												else {
 		  											alert("not supported");

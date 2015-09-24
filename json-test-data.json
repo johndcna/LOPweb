@@ -2,8 +2,8 @@
 "id":1234,
 "username":"Test username",
 "password":"Test password",
-"firstName":John,
-"lastName":Decena,
+"firstName":"John",
+"lastName":"Decena",
 "email":null,
 "lastLogin":null,
 "lastDownloadDate":null,
@@ -11,7 +11,7 @@
 "liableLearningObjects":[
 				{
 					"id":null,
-					"title":'LO 1',
+					"title":"LO 1",
 					"subject":null,
 					"description":null,
 					"downloads":0,
