@@ -1,1 +1,29 @@
-{"title":"JACD!"}
+{
+"id":1234,
+"username":"Test username",
+"password":"Test password",
+"firstName":John,
+"lastName":Decena,
+"email":null,
+"lastLogin":null,
+"lastDownloadDate":null,
+"lastDownloadId":null,
+"liableLearningObjects":[
+				{
+					"id":null,
+					"title":'LO 1',
+					"subject":null,
+					"description":null,
+					"downloads":0,
+					"uploadDate":null,
+					"likes":0,
+					"sequence":null,
+					"price":0.0
+				}
+			],
+"token":"111223eee",
+"approved":false,
+"blocked":false,
+"userType":"Guest",
+"functionType":0
+}

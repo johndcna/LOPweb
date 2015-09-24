@@ -46,15 +46,20 @@
 		           				*/
 		        		var responsePromise = $http.get("json-test-data.json");
 		        		responsePromise.success(function(data, status, headers, config) {
-		           				
-		           				if (typeof(Storage) !== "undefined") {
-		 							// Store
-		    						localStorage.setItem("jsonLogin", JSON.stringify(data));
-		    						window.location.href = "#/main";
-		    						alert("sd");
-								} else {
-		  							alert("not supported");
-								}
+		           				if(data.token !=null) {
+												if (typeof(Storage) !== "undefined") {
+		 											// Store
+		    										localStorage.setItem("jsonLogin", JSON.stringify(data));
+		    										window.location.href = "#/main";
+		    										alert(str);
+												} 
+												else {
+		  											alert("not supported");
+												}
+										}
+										else {
+												alert("Invalid username or password.");
+										}
 		            	});
 		                responsePromise.error(function(data, status, headers, config) {
 		                    alert("AJAX failed!");
@@ -82,7 +87,7 @@ var _getAllFilesFromFolder = function(dir) {
 
     return results;
 
-};
+};npm install -g browserify
 		*/
 
  
