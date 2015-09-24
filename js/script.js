@@ -8,7 +8,7 @@
             	})
             	.when('/main',{
             		templateUrl:'main/main.html',
-            		controller: 'LOController'
+            		controller: 'TaskbarController'
             	})
             	.otherwise({
                    	redirectTo: '/'
@@ -66,13 +66,14 @@
 	        	}
         	}
 
-        	controllers.LOController = function($scope,$http){
+        	controllers.TaskbarController = function($scope,$http){
         		$scope.data = JSON.parse(localStorage.getItem("jsonLogin"));
         		$scope.name = $scope.data.username;
 
         		$scope.test = function() {
 					alert("title: "+$scope.data.username);
 				}
+
         	}
 		module.controller(controllers); 
 

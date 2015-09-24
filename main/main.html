@@ -16,10 +16,12 @@
                 Hello, {{data.firstName}} {{data.lastName}}
                 </div>
                 <div class="row list">
-                    <p>Learning Objects</p>
                     <ul>
-                        <li style="color:white;" ng-repeat= "x in data.liableLearningObjects"> {{x.title}}</li>
-                    </ul>>
+                    <h4 style="color:white"><a href="#" ng-click="showDetails =! showDetails">"Learning Objects<a></h4>
+                        <div class="los" ng-show="showDetails">
+                        <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> {{x.title}}</li>
+                        </div>
+                    </ul>
                 </div>
 
             </div>
