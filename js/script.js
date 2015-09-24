@@ -80,7 +80,8 @@
 					}
 				}
 				$scope.displayLO = function(LOid){
-					alert(""+LOid);
+					alert(""+LOid);// ng-include="main.html"
+					$("#mainDiv").prop("ng-include","main.html");
 				}
 
         	}
