@@ -5,7 +5,7 @@
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/style.css" rel="stylesheet">
-
+        <link href="../css/font-awesome.min.css">
 
 
     <div class="container-fluid player">
@@ -16,7 +16,8 @@
                 Hello, {{data.firstName}} {{data.lastName}}
                 </div>
                 <div class="row list">
-                    <p>Learning Objects</p>
+                    
+                    <p class="header-playlist"><i class="fa fa-star" style="margin-right: 5px;"></i>Learning Objects</p>
                     <ul>
                         <li style="color:white; text-align:initial;" ng-repeat= "liableLearningObjects in data.liableLearningObjects"> {{liableLearningObjects.title}}</li>
                     </ul>
