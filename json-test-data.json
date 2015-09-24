@@ -19,6 +19,28 @@
 					"likes":0,
 					"sequence":null,
 					"price":0.0
+				},
+				{
+					"id":null,
+					"title":"LO 2",
+					"subject":null,
+					"description":null,
+					"downloads":0,
+					"uploadDate":null,
+					"likes":0,
+					"sequence":null,
+					"price":0.0
+				},
+				{
+					"id":null,
+					"title":"LO 3",
+					"subject":null,
+					"description":null,
+					"downloads":0,
+					"uploadDate":null,
+					"likes":0,
+					"sequence":null,
+					"price":0.0
 				}
 			],
 "token":"111223eee",

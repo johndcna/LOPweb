@@ -1,4 +1,4 @@
-		var module = angular.module("LOPapp", ['ngRoute']);
+	var module = angular.module("LOPapp", ['ngRoute']);
         
         module.config( ['$routeProvider', function($routeProvider) {
             $routeProvider
@@ -8,12 +8,12 @@
             	})
             	.when('/main',{
             		templateUrl:'main/main.html',
-            		controller: 'LoginController'
+            		controller: 'LOController'
             	})
             	.otherwise({
                    	redirectTo: '/'
                 });
-            }]);
+        }]);
 
         var controllers = {}; 
  			
@@ -47,23 +47,30 @@
 		        		var responsePromise = $http.get("json-test-data.json");
 		        		responsePromise.success(function(data, status, headers, config) {
 		           				if(data.token !=null) {
-												if (typeof(Storage) !== "undefined") {
-		 											// Store
-		    										localStorage.setItem("jsonLogin", JSON.stringify(data));
-		    										window.location.href = "#/main";
-												} 
-												else {
-		  											alert("not supported");
-												}
-										}
-										else {
-												alert("Invalid username or password.");
-										}
+									if (typeof(Storage) !== "undefined") {
+		 							// Store
+		    						localStorage.setItem("jsonLogin", JSON.stringify(data));
+		    							window.location.href = "#/main";
+									} 
+									else {
+		  								alert("not supported");
+									}
+								}
+								else {
+									alert("Invalid username or password.");
+								}
 		            	});
 		                responsePromise.error(function(data, status, headers, config) {
 		                    alert("AJAX failed!");
 		                });
 	        	}
+        	}
+
+        	controllers.LOController = function($scope,$http){
+        		$scope.test = function() {
+					var x =JSON.parse(localStorage.getItem("jsonLogin"));
+    						alert("title: "+x.username);
+				}
         	}
 		module.controller(controllers); 
 
