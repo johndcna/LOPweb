@@ -16,20 +16,17 @@
                 Hello, {{data.firstName}} {{data.lastName}}
                 </div>
                 <div class="row list">
-<<<<<<< HEAD
-=======
-                    
-                    <p class="header-playlist"><i class="fa fa-star" style="margin-right: 5px;"></i>Learning Objects</p>
->>>>>>> origin/master
+
+
+
                     <ul>
-<<<<<<< HEAD
+
                     <h4 style="color:white" ng-click="showLO()" ng-init="flag=false">Learning Objects</h4>
                         <div class="los" ng-if="flag">
-                            <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> <div  ng-click="displayLO(x.title);">aasdf</div></li>
+                            <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> <div ng-click="displayLO(x.loID)">{{x.title}}</div></li>
                         </div>
-=======
-                        <li style="color:white; text-align:initial;" ng-repeat= "liableLearningObjects in data.liableLearningObjects"> {{liableLearningObjects.title}}</li>
->>>>>>> origin/master
+
+
                     </ul>
                 </div>
 
@@ -38,7 +35,6 @@
             <div class="col-md-9 playzone jumbotron">
                 <h1>????-? ?????</h1>
                 <p>Lorem ipsum bilat Lorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilatLorem ipsum bilat</p> 
-                <button type="submit" class="btn btn-success btn-sm" style="width:50%;" ng-click = "myData.doClick(item, $event)">Login</button>
             </div>
         </div>
     </div>

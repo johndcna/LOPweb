@@ -10,6 +10,7 @@
 "lastDownloadId":null,
 "liableLearningObjects":[
 				{
+					"loID":0,
 					"title":"LO 1",
 					"subject":null,
 					"description":null,
@@ -17,10 +18,10 @@
 					"uploadDate":null,
 					"likes":0,
 					"sequence":null,
-					"price":0.1,
-					"loID":0
+					"price":0.1
 				},
 				{
+					"loID":1,
 					"title":"LO 2",
 					"subject":null,
 					"description":null,
@@ -28,10 +29,11 @@
 					"uploadDate":null,
 					"likes":0,
 					"sequence":null,
-					"price":3.0,
-					"loID":1
+					"price":3.0
 				},
 				{
+
+					"loID":2,
 					"title":"LO 3",
 					"subject":null,
 					"description":null,
@@ -39,8 +41,7 @@
 					"uploadDate":null,
 					"likes":0,
 					"sequence":null,
-					"price":5.3,
-					"loID":2
+					"price":5.3
 				}
 			],
 "token":"111223eee",
