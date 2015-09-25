@@ -83,6 +83,13 @@
 				$scope.displayLO = function(LOid){
 					alert(""+LOid);// ng-include="main.html"
 					$("#mainDiv").empty();
+					/*
+							for()
+							{
+								ifsequnce if txt , vid
+								
+							}
+					*/
 				//	$("#mainDiv").prepend("<div ng-include data-src='/main/main.html'>"+LOid+"</div>");
 				//	$("#mainDiv").prepend("<h2>Spectacular Mountain</h2><img src='C:\\Users\\John\\Pictures\\2014-12-31\\john.png' alt='Mountain View' style='width:304px;height:228px;'>");
 
