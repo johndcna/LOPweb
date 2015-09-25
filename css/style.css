@@ -44,3 +44,7 @@ html, body{
     font-family: 'Oswald-Bold', Arial, sans-serif;
     color:#FFF;
 }
+
+.list ul {
+    padding:0px;
+}

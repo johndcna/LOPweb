@@ -1,52 +1,51 @@
 {
-"id":1234,
-"username":"Test username",
-"password":"Test password",
-"firstName":"John",
-"lastName":"Decena",
-"email":null,
-"lastLogin":null,
-"lastDownloadDate":null,
-"lastDownloadId":null,
-"liableLearningObjects":[
-				{
-					"loID":0,
-					"title":"LO 1",
-					"subject":null,
-					"description":null,
-					"downloads":555,
-					"uploadDate":null,
-					"likes":0,
-					"sequence":null,
-					"price":0.1
-				},
-				{
-					"loID":1,
-					"title":"LO 2",
-					"subject":null,
-					"description":null,
-					"downloads":33,
-					"uploadDate":null,
-					"likes":0,
-					"sequence":null,
-					"price":3.0
-				},
-				{
-
-					"loID":2,
-					"title":"LO 3",
-					"subject":null,
-					"description":null,
-					"downloads":1,
-					"uploadDate":null,
-					"likes":0,
-					"sequence":null,
-					"price":5.3
-				}
-			],
-"token":"111223eee",
-"approved":false,
-"blocked":false,
-"userType":"Guest",
-"functionType":0
+    "id": 1234,
+    "username": "Test username",
+    "password": "Test password",
+    "firstName": "John",
+    "lastName": "Decena",
+    "email": null,
+    "lastLogin": null,
+    "lastDownloadDate": null,
+    "lastDownloadId": null,
+    "liableLearningObjects": [
+        {
+            "id": 0,
+            "title": "LO 1",
+            "subject": null,
+            "description": null,
+            "downloads": 555,
+            "uploadDate": null,
+            "likes": 0,
+            "sequence": null,
+            "price": 0.1
+        },
+        {
+            "id": 1,
+            "title": "LO 2",
+            "subject": null,
+            "description": null,
+            "downloads": 33,
+            "uploadDate": null,
+            "likes": 0,
+            "sequence": null,
+            "price": 3
+        },
+        {
+            "id": 2,
+            "title": "LO 3",
+            "subject": null,
+            "description": null,
+            "downloads": 1,
+            "uploadDate": null,
+            "likes": 0,
+            "sequence": null,
+            "price": 5.3
+        }
+    ],
+    "token": "111223eee",
+    "approved": false,
+    "blocked": false,
+    "userType": "Guest",
+    "functionType": 0
 }

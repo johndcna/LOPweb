@@ -49,6 +49,7 @@
 		           				if(data.token !=null) {
 									if (typeof(Storage) !== "undefined") {
 		 							// Store
+		 							localStorage.clear();
 		    						localStorage.setItem("jsonLogin", JSON.stringify(data));
 		    							window.location.href = "#/main";
 									} 
@@ -81,7 +82,7 @@
 				}
 				$scope.displayLO = function(LOid){
 					alert(""+LOid);// ng-include="main.html"
-					$("#mainDiv").prop("ng-include","main.html");
+					//$("#mainDiv").prop("ng-include","main.html");
 				}
 
         	}
