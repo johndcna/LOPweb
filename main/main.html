@@ -16,38 +16,19 @@
                 Hello, {{data.firstName}} {{data.lastName}}
                 </div>
                 <div class="row list">
-
-
-
                     <ul>
 
-                    <h4 style="color:white" ng-click="showLO()" ng-init="flag=false">Learning Objects</h4>
-                        <div class="los" ng-if="flag">
-                            <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> <div ng-click="displayLO(x.sequence)">{{x.title}}</div></li>
-                        </div>
-                    <h4 style="color:white">Open LO Store</h4>    
-
-
+                        <h4 style="color:white" ng-click="showLO()" ng-init="flag=false">Learning Objects</h4>
+                            <div class="los" ng-if="flag">
+                                <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> <div ng-click="displayLO(x.sequence)">{{x.title}}</div></li>
+                            </div>
+                        <h4 style="color:white">Open LO Store</h4>    
                     </ul>
                 </div>
-
             </div>
              <!-- LO form -->
             <div class="col-md-9 playzone jumbotron" id="mainDiv">
-                <object width="300" height="300" type="text/plain" data="le/idm key.txt" border="0" >
-                </object>
-                <br/>
-                <h2>Gwapo pic</h2><img src='le/001.jpg' alt='Mountain View' style='width:304px;height:228px;'>
-                <br/>
-                <audio controls>
-                      <source src="le/br.mp3" type="audio/mpeg">
-                       Your browser does not support the audio element.
-                </audio>
-                <br/>
-                <video width="320" height="240" controls>
-                      <source src="le/sugar.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                </video>
+                
             </div>
         </div>
     </div>
