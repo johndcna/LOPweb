@@ -104,7 +104,7 @@
 						}
 						else if(le.type == "picture")
 						{
-							$("#mainDiv").append("<img src='le/"+fileName+fileExtension+"' alt='Mountain View' style='width:304px;height:228px;'>");
+							$("#mainDiv").append("<img src='le/"+fileName+fileExtension+"' alt='Mountain View'>");
 						}
 						else if(le.type == "video")
 						{
