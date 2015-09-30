@@ -53,8 +53,6 @@
 										 responsePromise.error(function(response) {
 					                   		alert("AJAX failed!");
 					                		});*/
-								
-		           				
 		        		var responsePromise = $http.get("json-test-data.json");
 		        		responsePromise.success(function(data, status, headers, config) {
 		           				if(data.token !=null) {
@@ -84,7 +82,6 @@
         		$scope.flag;
 
         		$scope.showLO = function() {
-					//alert(" "+$scope.flag);
 					if($scope.flag == true){
 						$scope.flag = false;
 					}else{
@@ -96,81 +93,30 @@
 					var fileName;
 					var fileExtension;
 					$("#mainDiv").empty();
-					//alert(LOsequence);
-					/*
-							for()
-							{
-								ifsequnce if txt , vid
-								
-							}
-					*/
-					//$("#mainDiv").prepend("<div ng-include data-src='/main/main.html'>"+LOid+"</div>");
-					//$("#mainDiv").prepend("<h2>Spectacular Mountain</h2><img src='C:\\Users\\John\\Pictures\\2014-12-31\\john.png' alt='Mountain View' style='width:304px;height:228px;'>");
-					/*if(LOid == 0)
-					{
-						$("#mainDiv").append("<object width='300' height='300' type='text/plain' data='le/idm key.txt' border='0'>");
-					}
-					else if(LOid == 1)
-					{
-						$("#mainDiv").append("<img src='le/001.jpg' alt='Mountain View' style='width:304px;height:228px;'>")
-					}
-					else if(LOid == 2)
-					{
-						$("#mainDiv").append("<object width='300' height='300' type='text/plain' data='le/idm key.txt' border='0'>");
-						$("#mainDiv").append("<br>");
-						$("#mainDiv").append("<img src='le/001.jpg' alt='Mountain View' style='width:304px;height:228px;'>")
-					}*/
-					//alert($scope.data.id + " " + $scope.data.username);
-					//for(int i = 0; i < 3; i++)
-					//{
-						//var arr = $scope.data.liableLearningObjects[LOid].sequence;
-						//alert(arr.title);
-						//for(int i = 0; i < $scope.data.liableLearningObjects.length; i++)
-						//{
 
-						//}
-						/*$.each($scope.data.liableLearningObjects, function(i,j)
-						{
-							//alert(j.id + ": " + j.title);
-							if(j.id == LOid)
-							{
-								q = j.sequence;
-							}
-						});
-						alert(q.length);
-						$.each(q, function(a,b)
-						{
-							alert(a+":"+b.title);
-						});*/
-
-					//}
 					$.each(LOsequence, function(a,le)
 					{
 						fileName = le.id;
 						fileExtension = le.fileExtension;
-						//alert(fileName);
 						if(le.type == "text")
 						{
-							//alert("text le");
 							$("#mainDiv").append("<object width='300' height='300' type='text/plain' data='le/"+fileName+fileExtension+"' border='0'>");
 						}
 						else if(le.type == "picture")
 						{
-							//alert("picture le");
-							$("#mainDiv").append("<img src='le/"+fileName+fileExtension+"'"+ " alt='Mountain View' style='width:304px;height:228px;'>");
+							$("#mainDiv").append("<img src='le/"+fileName+fileExtension+"' alt='Mountain View' style='width:304px;height:228px;'>");
 						}
 						else if(le.type == "video")
 						{
-							alert("video le");
+							$("#mainDiv").append("<audio controls><source src='le/"+fileName+fileExtension+"' type='audio/mpeg'>Your browser does not support the audio element.</audio>");
 						}
 						else if(le.type == "audio")
 						{
-							alert("audio le");
+							$("#mainDiv").append("<video width='320' height='240' controls><source src='le/"+fileName+fileExtension+"' type='video/mp4'>Your browser does not support the video tag.</video>");
 						}
 						$("#mainDiv").append("<br>");
 					});
 				}
-
         	}
 		module.controller(controllers); 
 
