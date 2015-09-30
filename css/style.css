@@ -18,10 +18,13 @@
 .container-fluid .jumbotron {
     border-radius:0px;
     height:100%;
+overflow-y: auto;
+float:left;
+overflow-x: hidden;
 }
 
 .row-player {
-    height: 67.65em;
+   // height: 67.65em;
 }
 
 .name{
