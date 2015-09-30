@@ -23,8 +23,9 @@
 
                     <h4 style="color:white" ng-click="showLO()" ng-init="flag=false">Learning Objects</h4>
                         <div class="los" ng-if="flag">
-                            <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> <div ng-click="displayLO(x.id)">{{x.title}}</div></li>
+                            <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> <div ng-click="displayLO(x.sequence)">{{x.title}}</div></li>
                         </div>
+                    <h4 style="color:white">Open LO Store</h4>    
 
 
                     </ul>

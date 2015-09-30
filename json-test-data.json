@@ -17,7 +17,41 @@
             "downloads": 555,
             "uploadDate": null,
             "likes": 0,
-            "sequence": null,
+            "sequence": 
+            [
+            	{
+            		"title": "Physics 1",
+            		"description": null,
+            		"dateCreated": null,
+            		"id": "idm key",
+            		"type":"text",
+            		"fileExtension":".txt"
+            	},
+            	{
+            		"title": "pictest",
+            		"description": null,
+            		"dateCreated": null,
+            		"id": "test-001",
+            		"type": "text",
+            		"fileExtension":".txt"
+            	},
+            	{
+            		"title": "pictest",
+            		"description": null,
+            		"dateCreated": null,
+            		"id": "test-001",
+            		"type": "text",
+            		"fileExtension":".txt"
+            	},
+            	{
+            		"title": "pictest",
+            		"description": null,
+            		"dateCreated": null,
+            		"id": "test-001",
+            		"type": "text",
+            		"fileExtension":".txt"
+            	}
+            ],
             "price": 0.1
         },
         {
@@ -28,7 +62,49 @@
             "downloads": 33,
             "uploadDate": null,
             "likes": 0,
-            "sequence": null,
+            "sequence": 
+            [
+            	{
+            		"title": "Physics 1",
+            		"description": null,
+            		"dateCreated": null,
+            		"id": "testpicflash",
+            		"type":"picture",
+            		"fileExtension":".png"
+            	},
+            	{
+            		"title": "pictest",
+            		"description": null,
+            		"dateCreated": null,
+            		"id": "test",
+            		"type": "text",
+            		"fileExtension":".txt"
+            	},
+            	{
+            		"title": "Physics 1",
+            		"description": null,
+            		"dateCreated": null,
+            		"id": "idm key",
+            		"type":"text",
+            		"fileExtension":".txt"
+            	},
+            	{
+            		"title": "Physics 2",
+            		"description": null,
+            		"dateCreated": null,
+            		"id": "pic1",
+            		"type":"picture",
+            		"fileExtension":".png"
+            	},
+            	{
+            		"title": "pictest",
+            		"description": null,
+            		"dateCreated": null,
+            		"id": "test-001",
+            		"type": "text",
+            		"fileExtension":".txt"
+            	}
+            ],
             "price": 3
         },
         {
@@ -39,7 +115,33 @@
             "downloads": 1,
             "uploadDate": null,
             "likes": 0,
-            "sequence": null,
+            "sequence": 
+            [
+            	{
+            		"title": "Physics 1",
+            		"description": null,
+            		"dateCreated": null,
+            		"id": "idm key",
+            		"type":"text",
+            		"fileExtension":".txt"
+            	},
+            	{
+            		"title": "Physics 2",
+            		"description": null,
+            		"dateCreated": null,
+            		"id": "001",
+            		"type":"picture",
+            		"fileExtension":".jpg"
+            	},
+            	{
+            		"title": "pictest",
+            		"description": null,
+            		"dateCreated": null,
+            		"id": "test-001",
+            		"type": "text",
+            		"fileExtension":".txt"
+            	}
+            ],
             "price": 5.3
         }
     ],
