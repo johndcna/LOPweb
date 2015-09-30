@@ -100,17 +100,17 @@
 						fileExtension = le.fileExtension;
 						if(le.type == "text")
 						{
-							$("#mainDiv").append("<object width='300' height='300' type='text/plain' data='le/"+fileName+fileExtension+"' border='0'>");
+							$("#mainDiv").append("<object width='500' height='300' type='text/plain' data='le/"+fileName+fileExtension+"' border='0'>");
 						}
 						else if(le.type == "picture")
 						{
 							$("#mainDiv").append("<img src='le/"+fileName+fileExtension+"' alt='Mountain View' style='width:304px;height:228px;'>");
 						}
-						else if(le.type == "video")
+						else if(le.type == "audio")
 						{
 							$("#mainDiv").append("<audio controls><source src='le/"+fileName+fileExtension+"' type='audio/mpeg'>Your browser does not support the audio element.</audio>");
 						}
-						else if(le.type == "audio")
+						else if(le.type == "video")
 						{
 							$("#mainDiv").append("<video width='320' height='240' controls><source src='le/"+fileName+fileExtension+"' type='video/mp4'>Your browser does not support the video tag.</video>");
 						}

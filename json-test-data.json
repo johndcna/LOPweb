@@ -20,35 +20,11 @@
             "sequence": 
             [
             	{
-            		"title": "Physics 1",
+            		"title": "Test Text",
             		"description": null,
             		"dateCreated": null,
-            		"id": "idm key",
+            		"id": "test",
             		"type":"text",
-            		"fileExtension":".txt"
-            	},
-            	{
-            		"title": "pictest",
-            		"description": null,
-            		"dateCreated": null,
-            		"id": "test-001",
-            		"type": "text",
-            		"fileExtension":".txt"
-            	},
-            	{
-            		"title": "pictest",
-            		"description": null,
-            		"dateCreated": null,
-            		"id": "test-001",
-            		"type": "text",
-            		"fileExtension":".txt"
-            	},
-            	{
-            		"title": "pictest",
-            		"description": null,
-            		"dateCreated": null,
-            		"id": "test-001",
-            		"type": "text",
             		"fileExtension":".txt"
             	}
             ],
@@ -65,44 +41,12 @@
             "sequence": 
             [
             	{
-            		"title": "Physics 1",
+            		"title": "Picture test",
             		"description": null,
             		"dateCreated": null,
             		"id": "testpicflash",
             		"type":"picture",
             		"fileExtension":".png"
-            	},
-            	{
-            		"title": "pictest",
-            		"description": null,
-            		"dateCreated": null,
-            		"id": "test",
-            		"type": "text",
-            		"fileExtension":".txt"
-            	},
-            	{
-            		"title": "Physics 1",
-            		"description": null,
-            		"dateCreated": null,
-            		"id": "idm key",
-            		"type":"text",
-            		"fileExtension":".txt"
-            	},
-            	{
-            		"title": "Physics 2",
-            		"description": null,
-            		"dateCreated": null,
-            		"id": "pic1",
-            		"type":"picture",
-            		"fileExtension":".png"
-            	},
-            	{
-            		"title": "pictest",
-            		"description": null,
-            		"dateCreated": null,
-            		"id": "test-001",
-            		"type": "text",
-            		"fileExtension":".txt"
             	}
             ],
             "price": 3
@@ -118,29 +62,79 @@
             "sequence": 
             [
             	{
-            		"title": "Physics 1",
+            		"title": "Test Audio",
             		"description": null,
             		"dateCreated": null,
-            		"id": "idm key",
-            		"type":"text",
-            		"fileExtension":".txt"
-            	},
-            	{
-            		"title": "Physics 2",
-            		"description": null,
-            		"dateCreated": null,
-            		"id": "001",
-            		"type":"picture",
-            		"fileExtension":".jpg"
-            	},
-            	{
-            		"title": "pictest",
-            		"description": null,
-            		"dateCreated": null,
-            		"id": "test-001",
-            		"type": "text",
-            		"fileExtension":".txt"
+            		"id": "br",
+            		"type":"audio",
+            		"fileExtension":".mp3"
             	}
+            ],
+            "price": 5.3
+        },
+        {
+            "id": 3,
+            "title": "LO 4",
+            "subject": null,
+            "description": null,
+            "downloads": 1,
+            "uploadDate": null,
+            "likes": 0,
+            "sequence": 
+            [
+                {
+                    "title": "Test Video",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "sugar",
+                    "type":"video",
+                    "fileExtension":".mp4"
+                }
+            ],
+            "price": 5.3
+        },
+        {
+            "id": 4,
+            "title": "LO 5",
+            "subject": null,
+            "description": null,
+            "downloads": 1,
+            "uploadDate": null,
+            "likes": 0,
+            "sequence": 
+            [
+                {
+                    "title": "Test Picture",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "001",
+                    "type":"picture",
+                    "fileExtension":".jpg"
+                },
+                {
+                    "title": "Test Text",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "picture info",
+                    "type":"text",
+                    "fileExtension":".txt"
+                },
+                {
+                    "title": "Test audio",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "br",
+                    "type":"audio",
+                    "fileExtension":".mp3"
+                },
+                {
+                    "title": "Test Video",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "sugar",
+                    "type":"video",
+                    "fileExtension":".mp4"
+                }
             ],
             "price": 5.3
         }
