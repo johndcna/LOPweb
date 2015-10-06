@@ -18,6 +18,9 @@
 		
 	"128": "icon.png"
 	
-	}
+	},
+"permissions": [
+    "http://www.google.com/"
+  ]
 
 }

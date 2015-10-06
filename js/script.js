@@ -10,9 +10,10 @@
             		templateUrl:'main/main.html',
             		controller: 'TaskbarController'
             	})
+            	
             	.otherwise({
                    	redirectTo: '/'
-                });
+                });//http://+$rootScope.ip+:8080/InformatronYX/store/home
         }]);
 
         var controllers = {}; 
@@ -76,11 +77,11 @@
 	        	}
         	}
 
-        	controllers.TaskbarController = function($scope,$http){
+        	controllers.TaskbarController = function($scope,$http,$rootScope){
         		$scope.data = JSON.parse(localStorage.getItem("jsonLogin"));
         		$scope.name = $scope.data.username;
         		$scope.flag;
-
+        		$rootScope.ip = "";
         		$scope.showLO = function() {
 					if($scope.flag == true){
 						$scope.flag = false;
@@ -117,29 +118,70 @@
 						$("#mainDiv").append("<br>");
 					});
 				}
+				$scope.goToStore = function() {
+					$rootScope.ip = "192.168.254.101";
+					var win = window.open("http://"+$rootScope.ip+":8080/InformatronYX/store/home", '_blank');
+						if(win){
+						    //Browser has allowed it to be opened
+						    win.focus();
+						}else{
+						    //Broswer has blocked it
+						    alert('Please allow popups for this site');
+						}
+										}
         	}
 		module.controller(controllers); 
 
 		/*
-var _getAllFilesFromFolder = function(dir) {
+if ($.browser.msie && window.XDomainRequest) {
+    // Use Microsoft XDR
+    var xdr = new XDomainRequest();
+    xdr.open("get", "someurl");
+    xdr.onload = function () {
+    var JSON = $.parseJSON(xdr.responseText);
+    if (JSON == null || typeof (JSON) == 'undefined')
+    {
+        JSON = $.parseJSON(data.firstChild.textContent);
+    }
+    processData(JSON);
+    };
+    xdr.send();
+} else {
+          $.ajax({
+          type: 'GET',
+          url: "someurl"l,
+          processData: true,
+          data: {},
+          dataType: "json",
+          success: function (data) { processData(data); }
+          });
+}
+		
 
-    var filesystem = require("fs");
-    var results = [];
+$.ajax({
 
-    filesystem.readdirSync(dir).forEach(function(file) {
+    url: 'https://www.googleapis.com/moderator/v1/series?key='+key,
+    data: myData,
+    type: 'GET',
+    crossDomain: true,
+    dataType: 'jsonp',
+    success: function() { alert("Success"); },
+    error: function() { alert('Failed!'); },
+    beforeSend: setHeader
+});
 
-        file = dir+'/'+file;
-        var stat = filesystem.statSync(file);
 
-        if (stat && stat.isDirectory()) {
-            results = results.concat(_getAllFilesFromFolder(file))
-        } else results.push(file);
 
-    });
+Chrome.exe --allow-file-access-from-files
 
-    return results;
+chrome.exe --disable-web-security
 
-};npm install -g browserify
+request = new XDomainRequest();
+request.open(method, url);
+request.onload = function() {
+  callback(req.responseText);
+};
+request.send(data);
 		*/
 
  
