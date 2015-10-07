@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+	<head><title>LORI</title>
+		<pages maintainScrollPositionOnPostBack="true" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<link rel="stylesheet" type="text/css" href="LORI/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="LORI/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="LORI/bootstrap/css/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" type="text/css" href="LORI/css/loading.css" />
+		<link rel="stylesheet" type="text/css" href="LORI/css/loading-no-animation.css" />
+		<link rel="stylesheet" type="text/css" href="LORI/css/styles.css" />
+        <!--<link type='text/css' href='LORI/css/basic.css' rel='stylesheet' media='screen' />
+        <link type='text/css' href='css/about.css' rel='stylesheet' media='screen' />-->
+
+		<script type="text/javascript" src="LORI/js/jquery.js"></script>
+		<script type="text/javascript" src="LORI/js/bootstrap1.js"></script>
+		<script type="text/javascript" src="LORI/js/bootstrap-button.js"></script>
+		<script type="text/javascript" src="LORI/js/bootstrap-modal.js"></script>
+		<script type="text/javascript" src="LORI/js/placeholder.js"></script>
+        <script type="text/javascript" src="LORI/js/jquery-1.9.0.min.js"></script>
+        <script type="text/javascript" src="LORI/js/textarea.js"></script>
+        <script type="text/javascript" src="LORI/js/jkl-parsexml.js"></script>
+        
+
+        <script src="LORI/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+        <script src="LORI/js/LORI_Bean.js" type="text/javascript" charset="utf-8"></script>
+		<script src="LORI/js/LORI_Button.js" type="text/javascript" charset="utf-8"></script>
+        <script src="LORI/js/LORI_Main.js" type="text/javascript" charset="utf-8"></script>
+        <script src="LORI/js/LORI_DAO.js" type="text/javascript" charset="utf-8"></script>
+        <script src="LORI/js/LORI_Action.js" type="text/javascript" charset="utf-8"></script>
+
+        <!--script>
+        	$('document').ready(function(){
+        		$('.content#q1').click(){
+        			$('#collapseOne').slideDown('fast');
+        		}
+        	});
+        </script-->
+	</head>
+		<body onload="init();">
+			<div class="container">
+				<div class="evaluation-box">
+						<div class="body">
+
+						<div class="new-heading effect2">
+								<div class="about-link">
+									<a href="#" data-toggle="modal" data-target="#about-lori"><span class="about-link-text">about &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;lori</a>
+								</div>
+							<div class="logo">
+									<img src="LORI/LORI_img/logo2-3.png" />
+							</div>
+
+						</div>
+						<div class="sub-body effect2">
+							<div class="spring-texture">
+
+						</div>
+
+                                                    
+
+							<div class="content-box clearfix">
+							<!--ITEMS-->
+							<!--div class="content">Show All <span class="glyphicon "></span></div-->
+							<div class="accordion" id="accordion2">
+								<div class="accordion-group" >
+										<div class="accordion-heading">
+												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+													<div class="content" id="q1">
+														<div class="item-container"><div class="item-title" id="item-title-1">Content Quality</div><div class="item-uncheck">
+														<ul class="bokeh" id="check-mark-1">
+															<li></li>
+															<li></li>
+															<span class="glyphicon glyphicon-chevron-down" id="icon-1"></span>
+														</ul></div></div>
+													</div></a></div>
+													<div id="collapseOne" class="accordion-body collapse" style="height: 0; ">
+														 <div class="accordion-inner">
+														 <div class="row-fluid accordion-inner-flow">
+															<div class="span7 txt-holder">
+																Veracity, accuracy, balanced presentation of ideas, and appropriate level of detail.
+															</div>
+															<div class="span5 pull-right check-holder">
+																	<div class="btn-group" data-toggle="buttons-radio" id="q1">
+																	  <input type="button" value="1" id="1" class="btn"/>
+                                                                      <input type="button" value="2" id="2" class="btn"/>
+                                                                      <input type="button" value="3" id="3" class="btn"/>
+                                                                      <input type="button" value="4" id="4" class="btn"/>
+                                                                      <input type="button" value="5" id="5" class="btn"/>
+                                                                      <input type="button" value="x" id="x" class="btn"/>																	</div>
+															</div> <!--//span-->
+															</div>
+														</div> <!--//accordion-inner-->
+													</div>
+								</div>
+								
+								<div class="accordion-group" >
+										<div class="accordion-heading">
+												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+													<div class="content" id="q2">
+														<div class="item-container"><div class="item-title" id="item-title-2">Learning Goal Alignment</div><div class="item-uncheck">
+														<ul class="bokeh" id="check-mark-2">
+															<li></li>
+															<li></li>
+															<span class="glyphicon glyphicon-chevron-down" id="icon-2"></span>
+														</ul></div></div>
+													</div></a></div>
+													<div id="collapseTwo" class="accordion-body collapse" style="height: 0; ">
+														 <div class="accordion-inner">
+														<div class="row-fluid accordion-inner-flow">
+															<div class="span7 txt-holder">
+																Alignment among learning goals, activities, assessments, and learner characteristics
+															</div>
+															<div class="span5 pull-right check-holder">
+																	<div class="btn-group" data-toggle="buttons-radio" id="q2">
+																	  <input type="button" value="1" id="1" class="btn"/>
+                                                                      <input type="button" value="2" id="2" class="btn"/>
+                                                                      <input type="button" value="3" id="3" class="btn"/>
+                                                                      <input type="button" value="4" id="4" class="btn"/>
+                                                                      <input type="button" value="5" id="5" class="btn"/>
+                                                                      <input type="button" value="x" id="x" class="btn"/>
+																	</div>
+															</div> <!--//span-->
+														</div> <!--//accordion-inner-->
+													</div>
+													</div>
+								</div>
+								<div class="accordion-group" >
+										<div class="accordion-heading">
+												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+													<div class="content" id="q3">
+														<div class="item-container"><div class="item-title" id="item-title-3">Feedback and Adaptation</div><div class="item-uncheck" >
+														<ul class="bokeh" id="check-mark-3">
+															<li></li>
+															<li></li>
+															<span class="glyphicon glyphicon-chevron-down" id="icon-3"></span>
+														</ul></div></div>
+													</div></a></div>
+													<div id="collapseThree" class="accordion-body collapse" style="height: 0; ">
+														 <div class="accordion-inner">
+														<div class="row-fluid accordion-inner-flow">
+															<div class="span7 txt-holder">
+																Adaptive content or feedback driven by differential learner input or learner modeling.
+															</div>
+															<div class="span5 pull-right check-holder">
+																	<div class="btn-group" data-toggle="buttons-radio" id="q3">
+																	  <input type="button" value="1" id="1" class="btn"/>
+                                                                      <input type="button" value="2" id="2" class="btn"/>
+                                                                      <input type="button" value="3" id="3" class="btn"/>
+                                                                      <input type="button" value="4" id="4" class="btn"/>
+                                                                      <input type="button" value="5" id="5" class="btn"/>
+                                                                      <input type="button" value="x" id="x" class="btn"/>
+																	</div>
+															</div> <!--//span-->
+														</div> <!--//accordion-inner-->
+														</div>
+												</div>
+								</div>
+								<div class="accordion-group" >
+										<div class="accordion-heading">
+												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+													<div class="content" id="q4">
+														<div class="item-container"><div class="item-title" id="item-title-4">Motivation</div><div class="item-uncheck">
+														<ul class="bokeh" id="check-mark-4">
+															<li></li>
+															<li></li>
+															<span class="glyphicon glyphicon-chevron-down" id="icon-4"></span>
+														</ul>
+													</div></div>
+													</div></a></div>
+													<div id="collapseFour" class="accordion-body collapse" style="height: 0; ">
+														 <div class="accordion-inner">
+														<div class="row-fluid accordion-inner-flow">
+															<div class="span7 txt-holder">
+																Ability to motivate and interest an identified population of learners.
+															</div>
+															<div class="span5 pull-right check-holder">
+																	<div class="btn-group" data-toggle="buttons-radio" id="q4">
+																	  <input type="button" value="1" id="1" class="btn"/>
+                                                                      <input type="button" value="2" id="2" class="btn"/>
+                                                                      <input type="button" value="3" id="3" class="btn"/>
+                                                                      <input type="button" value="4" id="4" class="btn"/>
+                                                                      <input type="button" value="5" id="5" class="btn"/>
+                                                                      <input type="button" value="x" id="x" class="btn"/>
+																	</div>
+															</div> <!--//span-->
+														</div> <!--//accordion-inner-->
+														</div>
+													</div>
+								</div>
+								<div class="accordion-group" >
+										<div class="accordion-heading">
+												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+													<div class="content" id="q5">
+														<div class="item-container"><div class="item-title" id="item-title-5">Presentation Design</div><div class="item-uncheck">
+														<ul class="bokeh" id="check-mark-5">
+															<li></li>
+															<li></li>
+															<span class="glyphicon glyphicon-chevron-down" id="icon-5"></span>
+																</ul>
+													</div></div>
+													</div></a></div>
+													<div id="collapseFive" class="accordion-body collapse" style="height: 0; ">
+														 <div class="accordion-inner">
+														<div class="row-fluid accordion-inner-flow">
+															<div class="span7 txt-holder">
+																Design of visual and auditory information for enhanced learning and efficient mental processing
+															</div>
+															<div class="span5 pull-right check-holder">
+																	<div class="btn-group" data-toggle="buttons-radio" id="q5">
+																	  <input type="button" value="1" id="1" class="btn"/>
+                                                                      <input type="button" value="2" id="2" class="btn"/>
+                                                                      <input type="button" value="3" id="3" class="btn"/>
+                                                                      <input type="button" value="4" id="4" class="btn"/>
+                                                                      <input type="button" value="5" id="5" class="btn"/>
+                                                                      <input type="button" value="x" id="x" class="btn"/>
+																	</div>
+															</div><!--//span-->
+														</div> <!--//accordion-inner-->
+														</div>
+													</div>
+								</div>
+								<div class="accordion-group" >
+										<div class="accordion-heading">
+												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">
+													<div class="content" id="q6">
+														<div class="item-container"><div class="item-title" id="item-title-6">Interaction Usability</div><div class="item-uncheck">
+														<ul class="bokeh" id="check-mark-6">
+															<li></li>
+															<li></li>
+															<span class="glyphicon glyphicon-chevron-down" id="icon-6"></span>
+														</ul>
+														</div></div>
+													</div></a></div>
+													<div id="collapseSix" class="accordion-body collapse" style="height: 0; ">
+														 <div class="accordion-inner">
+														<div class="row-fluid accordion-inner-flow">
+															<div class="span7 txt-holder">
+																Ease of navigation, predictability of the user interface, and quality of the interface help features
+															</div>
+															<div class="span5 pull-right check-holder">
+																	<div class="btn-group" data-toggle="buttons-radio" id="q6">
+																	  <input type="button" value="1" id="1" class="btn"/>
+                                                                      <input type="button" value="2" id="2" class="btn"/>
+                                                                      <input type="button" value="3" id="3" class="btn"/>
+                                                                      <input type="button" value="4" id="4" class="btn"/>
+                                                                      <input type="button" value="5" id="5" class="btn"/>
+                                                                      <input type="button" value="x" id="x" class="btn"/>
+																	</div>
+															</div><!--//span-->
+														</div> <!--//accordion-inner-->
+														</div>
+													</div>
+								</div>
+								<div class="accordion-group" >
+										<div class="accordion-heading">
+												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">
+													<div class="content" id="q7">
+														<div class="item-container"><div class="item-title" id="item-title-7">Accessibility</div><div class="item-uncheck">
+														<ul class="bokeh" id="check-mark-7">
+															<li></li>
+															<li></li>
+															<span class="glyphicon glyphicon-chevron-down" id="icon-7"></span>
+														</ul>
+													</div></div>
+													</div></a></div>
+													<div id="collapseSeven" class="accordion-body collapse" style="height: 0; ">
+														 <div class="accordion-inner">
+														<div class="row-fluid accordion-inner-flow">
+															<div class="span7 txt-holder">
+																Design of controls and presentation formats to accommodate disabled and mobile learners.
+															</div>
+															<div class="span5 pull-right check-holder">
+																	<div class="btn-group" data-toggle="buttons-radio" id="q7">
+																	  <input type="button" value="1" id="1" class="btn"/>
+                                                                      <input type="button" value="2" id="2" class="btn"/>
+                                                                      <input type="button" value="3" id="3" class="btn"/>
+                                                                      <input type="button" value="4" id="4" class="btn"/>
+                                                                      <input type="button" value="5" id="5" class="btn"/>
+                                                                      <input type="button" value="x" id="x" class="btn"/>
+																	</div>
+															</div> <!--//span-->
+														</div> <!--//accordion-inner-->
+														</div>
+													</div>
+								</div>
+								<div class="accordion-group" >
+										<div class="accordion-heading">
+												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseEight">
+													<div class="content" id="q8">
+														<div class="item-container"><div class="item-title" id="item-title-8">Reusability</div><div class="item-uncheck">
+														<ul class="bokeh" id="check-mark-8">
+															<li></li>
+															<li></li>
+															<span class="glyphicon glyphicon-chevron-down" id="icon-8"></span>
+														</ul>
+													</div></div>
+													</div></a></div>
+													<div id="collapseEight" class="accordion-body collapse" style="height: 0; ">
+														 <div class="accordion-inner">
+														<div class="row-fluid accordion-inner-flow">
+															<div class="span7 txt-holder">
+																Ability to use in varying learning contexts and with learners from differing backgrounds
+															</div>
+															<div class="span5 pull-right check-holder">
+																	<div class="btn-group" data-toggle="buttons-radio" id="q8">
+																	 <input type="button" value="1" id="1" class="btn"/>
+                                                                      <input type="button" value="2" id="2" class="btn"/>
+                                                                      <input type="button" value="3" id="3" class="btn"/>
+                                                                      <input type="button" value="4" id="4" class="btn"/>
+                                                                      <input type="button" value="5" id="5" class="btn"/>
+                                                                      <input type="button" value="x" id="x" class="btn"/>
+																	</div>
+															</div> <!--//span-->
+														</div> <!--//accordion-inner-->
+														</div>
+													</div>
+								</div>
+								<div class="accordion-group" >
+										<div class="accordion-heading">
+												<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseNine">
+													<div class="content" id="q9">
+														<div class="item-container"><div class="item-title" id="item-title-9">Standards Compliance</div><div class="item-uncheck">
+														<ul class="bokeh" id="check-mark-9">
+															<li></li>
+															<li></li>
+															<span class="glyphicon glyphicon-chevron-down" id="icon-9"></span>
+														</ul>
+													</div></div>
+													</div></a></div>
+													<div id="collapseNine" class="accordion-body collapse" style="height: 0; ">
+														 <div class="accordion-inner">
+														<div class="row-fluid accordion-inner-flow">
+															<div class="span7 txt-holder">
+																Adherence to international standards and specifications.
+															</div>
+															<div class="span5 pull-right check-holder">
+																	<div class="btn-group" data-toggle="buttons-radio" id="q9">
+                                                                      <input type="button" value="1" id="1" class="btn"/>
+                                                                      <input type="button" value="2" id="2" class="btn"/>
+                                                                      <input type="button" value="3" id="3" class="btn"/>
+                                                                      <input type="button" value="4" id="4" class="btn"/>
+                                                                      <input type="button" value="5" id="5" class="btn"/>
+                                                                      <input type="button" value="x" id="x" class="btn"/>
+																	</div>
+															</div> <!--//span-->
+														</div> <!--//accordion-inner-->
+														</div>
+													</div>
+								</div>
+							</div>
+
+						</div>
+
+
+						</div>
+					</div>
+						<div class="button-margin">
+							
+							<div class="span12 button-events" id="basic-modal">
+								<button id="send" class="span6 basic1" type="button" data-toggle="modal" data-target="#basic-modal-content1" >SEND</button>
+								
+							
+							</div>
+					</div>
+					</div>
+
+			</div>
+
+
+            <!-- pop-up -->
+            <div id='container'>
+                <div id='content'>
+                   
+            <!--bootstrap-modal-->
+            
+            <!-- saving -->
+            <div class="modal" id="basic-modal-content" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    	<div style="max-width:450px;margin:0 auto;height:auto;" id="response">
+                        <p>Do you want to save?</p>
+                         <p><span style="color:#f79b0c;font-size:17px;">Note :</span>Saving feature of this plugin will work if the cookies of your device/desktop is enabled. Please make sure to enable them for you to enjoy this feature. To <span style="color:#f79b0c;"><u>edit</u> / <u>view</u> </span>evaluation <i>click</i> the review button.</p>
+
+                         <div>
+                         <ul class="bokeh pull-left" id="load-save">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<span class="glyphicon glyphicon-saved"></span>
+							</ul>
+						</div>
+							<div class="button-save">
+								<button id="review_now" class="btnsave-review mobile"  data-dismiss="modal" aria-hidden="true">Review</button>
+								<button id="save_now" class="btnsave-save mobile active" data-dismiss="modal" aria-hidden="true" data-toggle="modal" data-target="#success-save">Save</button>
+							</div>
+						</div>
+                    </div>
+            
+            <!-- sending -->
+            <div class="modal" id="basic-modal-content1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div style="max-width:450px;margin:0 auto;height:auto;" id="response">
+			  <p>Do you want to send now?</p>
+			   <p><span style="color:#f79b0c;font-size:17px;">Note :</span> You can only evaluate <span style="color:#f79b0c;"><u>once</u></span>. Make sure that you are connected to ECRC moodle server. They will be
+			   	the one to validate your evaluation.</p>
+
+
+			  <div>
+				<ul class="bokeh pull-left" id="load-save">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<span class="glyphicon glyphicon-send"></span>
+				</ul>
+			  </div>
+			  <div class="button-save">
+			  	<button id="review_now" class="btnsave-review mobile" data-dismiss="modal" aria-hidden="true">Review</button>
+			  	<button id="send_now" class="btnsave-send mobile"  data-dismiss="modal" aria-hidden="true" data-toggle="modal" data-target="#success-send">Send</button>
+			  </div>
+			 </div>
+			</div>
+            
+            <!-- save success -->
+            <div class="modal" id="success-save" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div style="max-width:450px;margin:0 auto;height:auto;" id="response">
+			  <p>Your evaluation was successfully saved if you have enabled the cookies.</p>
+			  <p><span style="color:#f79b0c;font-size:17px;">Note:</span> You can modify saved evaluations anytime.</p>
+			
+			  <div class="button-save">
+			    <button id="Close" class="btnsave-review mobile" data-dismiss="modal" aria-hidden="true" style="margin-top:0;">Close</button>
+
+			  </div>
+			 </div>
+			</div>
+
+			<!-- send success -->
+            <div class="modal" id="success-send" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div style="max-width:450px;margin:0 auto;height:auto;" id="response">
+			  <p>Thank you for evaluating this learning object.</p>
+			  <p><span style="color:#f79b0c;font-size:17px;">Note:</span> You can only evaluate once. Your evaluation was filtered during your submission. There is no response from the server due to application limitations but your first instance of evaluating the learning object was received by the other application if you are currently connected to the server.</p>
+			  <p>Thank you for evaluating!</p>
+			
+			  <div class="button-save">
+			    <button id="Close" class="btnsave-review mobile" data-dismiss="modal" aria-hidden="true" style="margin-top:0;">Close</button>
+
+			  </div>
+			 </div>
+			</div>
+
+			<!-- about-lori -->
+            <div class="modal" id="about-lori" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div style="max-width:450px;margin:0 auto;padding:0 5px;height:auto;" id="response">
+			  <p style="padding-top:20px;color:#1e1e1e;"><span style="font-size:30px;">Lori</span><br><br>Learning Object Review Instrument or<span style="color:#ff9600"> Lori</span> <br> is a plug-in that supports evaluation of multimedia <br>learning objects<br><h2 style="color:#1e1e1e;">SAVING OFFLINE & SENDING ONLINE !</h2></p>
+			  <div class="button-save" >
+                              <button id="Close" style="background:#1e1e1e;color:#fff;" class="btnsave-review mobile pull-left" data-dismiss="modal" aria-hidden="true">Close</button>
+
+			  </div>
+			 </div>
+			</div>
+
+             <!--onclick-->
+			<div class="modal" id="auto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background:white;">
+			  <div style="max-width:450px;margin:0 auto;padding:0 5px;height:auto;" id="response">
+			  <p style="padding-top:20px;color:#1e1e1e;"><span style="font-size:30px;">Must Read!</span><br><br>For successful evaluation, input valid and registered username from <span style="color:#ff9600">CSS Website </span>or <span style="color:#ff9600">Informatron CMS</span> in evaluating learning objects. Evaluation will be invalid if entered username is wrong.<br><h2 style="color:#1e1e1e;">Thank You!</h2></p>
+				 <div class="pull-right" style="color:black;font-size:20px;"><img src="LORI/LORI_img/logo2-3.png" style="height:40px;"/>
+                                  | informatron <span style="color:#ff9600">| CCS</span>
+								<p align="center" style="font-size:10px;color:gray"><i>...yours truly</i></p>
+							  </div>
+			  <div class="button-save" >
+                              <button id="evaluate" style="background:#1e1e1e;color:#fff;" class="btnsave-review mobile pull-left" data-dismiss="modal" aria-hidden="true">Got it</button>
+							 
+				
+			  </div>
+
+			 </div>
+			</div>
+            </div>
+                    </div>
+            </div>
+         </div>
+
+       <!--     <script type='text/javascript' src='LORI/js/jquery.simplemodal.js'></script>
+			<script type='text/javascript' src='LORI/js/basic.js'></script>-->
+			<script type="text/javascript" src="LORI/js/modernizr.custom.63321.js"></script>
+
+			<!--demo-->
+
+		</body>
+</html>
+
+ <script>
+			   
+  	$('#user-reminder').one("click",function(){
+		$('.modal#auto').addClass('show');
+		$(this).blur();
+	});
+	$('#evaluate').click(function(){
+		$('.modal#auto').removeClass('show');
+
+	});
+</script>

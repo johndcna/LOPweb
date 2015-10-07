@@ -1,0 +1,83 @@
+
+
+            ::-webkit-scrollbar-corner { } /* sizer (only visible in TEXTAREA) */
+
+            ::-webkit-scrollbar {
+                            width:7px;
+                                    }
+            ::-webkit-scrollbar-button { }
+            ::-webkit-scrollbar-track {
+                            width:8px;		
+                            background:#1e1e1e;
+                            border-radius:6px;
+            } 
+            ::-webkit-scrollbar-thumb {
+                            background:#888;
+                            border-radius:6px;
+                            width:9px;
+            }
+
+            body{
+                            margin:0;
+                            padding:0 0 0 10x;	
+                            font-family: "Segoe UI Light","Segoe WPC","Segoe UI",Helvetica, Arial, "Arial Unicode MS", Sans-Serif;
+                            color:black;
+            }
+            .head{
+                            min-width:165px;
+                            background:#1e1e1e;
+                            text-align:center;
+                            padding: 25px 0;
+            }
+            .head img{
+                            border:none !important;
+                            background: #1e1e1e;
+            }
+            .container{
+                            min-width:165px;
+            }
+            .home-popUp{
+                            margin:0 auto;
+                            max-width:350px;
+                            padding:2% 0;
+                            height:inherit;
+            }
+            .btn-evaluate{
+                            font-size:27px;
+                            color:white;
+                            border:none;
+                            background: url(LORI_img/bg.png);
+                            padding: 30px 10%;
+                            min-width:165px;
+            }
+            .btn-evaluate:hover{
+                            background: url(LORI_img/texture2.png);
+                            color:#1e1e1e;
+            }
+            .body-fluid{
+                            background: url(LORI_img/texture1.png);
+            }
+            .body{
+                            margin: 2% 0;
+                            text-align:center;
+                            width:95%;
+            }
+            .element-divider{
+                            background: url(LORI_img/texture1.png);
+            }
+            .about-lori{
+                    padding:0 10px 0 14px;
+                    height:80px;
+                    width:90%;
+                    overflow:scroll;
+                    overflow-x:hidden;
+            }
+    .buttons{
+    margin-top:7px;
+    background:transparent;
+    border:none;
+    font-size: 23px;
+    color: #60605f;
+}
+    .buttons:hover{
+    background: url(LORI_img/bg.png);}

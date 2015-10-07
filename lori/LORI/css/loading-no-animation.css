@@ -1,0 +1,41 @@
+.bokeh-1 {
+	font-size: 100px;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    margin:0 auto;
+    border-radius: 50%;
+    border: .03em solid rgba(150,150,150,0.1);
+    list-style: none;
+    }
+.bokeh li {
+    position: absolute;
+    width: .2em;
+    height: .2em;
+    border-radius: 50%;
+}
+
+.bokeh li:nth-child(1) {
+    left: 50%;
+    top: 0;
+    margin: 0 0 0 -.1em;
+    background: #ff9600;
+    -webkit-transform-origin: 50% 250%;
+    -moz-transform-origin: 50% 250%;
+    -ms-transform-origin: 50% 250%;
+    -o-transform-origin: 50% 250%;
+    transform-origin: 50% 250%;
+}
+
+.bokeh li:nth-child(4) {
+    top: 50%; 
+    right: 0;
+    margin: -.1em 0 0 0;
+    background: #fff;
+    -webkit-transform-origin: -150% 50%;
+    -moz-transform-origin: -150% 50%;
+    -ms-transform-origin: -150% 50%;
+    -o-transform-origin: -150% 50%;
+    transform-origin: -150% 50%;
+}
+

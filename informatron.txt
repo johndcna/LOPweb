@@ -1,0 +1,85 @@
+Submit quiz result
+/InformatronYX/informatron/quiz/submit
+{
+    "id": null,
+    "lo_id": null,
+    "lo_name": "",
+    "lo_subject": null,
+    "score": 0,
+    "totalScore": 0,
+    "date_submitted": null,
+    "time_started": null,
+    "time_finished": null,
+    "username": "",
+    "user_id": 0,
+    "quizResults": null,
+    "errorList": []
+}
+
+
+Submit LORI result
+/InformatronYX/informatron/lori/submit
+
+{
+    "id": null,
+    "evaluation": [0,5,3,1,2,3,4],
+    "learningObjectId": null,
+    "subject": null,
+    "errorList": [],
+    "loris": null,
+    "reviewId": null
+}
+
+LOGIN
+
+{
+    "id": null,
+    "username": null,
+    "password": null,
+    "firstName": null,
+    "lastName": null,
+    "email": null,
+    "lastLogin": null,
+    "lastDownloadDate": null,
+    "lastDownloadId": null,
+    "liableLearningObjects": [
+				{
+    				"id": null,
+   				 "title": null,
+   				 "subject": null,
+  				  "description": null,
+  				  "downloads": 0,
+  				  "uploadDate": null,
+  				  "likes": 0,
+ 				   "sequence": [
+							[
+						        	{
+    									"title": null,
+   									"type": null,
+    						        		"description": null,
+    					                		"dateCreated": null,
+    						        		"id": null
+     								},
+								{
+    									"title": null,
+    									"type": null,
+    									"description": null,
+    									"dateCreated": null,
+    									"id": null
+								}
+							],
+							[
+	
+							]
+						],
+    					"price": 0,
+   				 "errorList": []
+				}
+			     ],
+    "token": null,
+    "approved": false,
+    "blocked": false,
+    "userType": "Guest",
+    "functionType": 0,
+    "credits": 0
+}

@@ -18,7 +18,7 @@
 
         var controllers = {}; 
  			
- 			controllers.LoginController = function($scope,$http) {
+ 			controllers.LoginController = function($scope,$http,$rootScope) {
         
 		        $scope.myData = {};
 					
@@ -28,14 +28,14 @@
 
 				$scope.myData.doClick = function(item, event) {
 							// for information
-		           					/*var inputData =  {
+		           					var inputData =  {
 		           						'username' : $scope.username,
 		           						'password' : $scope.password
 		           					};
-		           					
-		           					alert(inputData);
-		        		 			var responsePromise =  $http.post("http://192.168.254.101:8080/InformatronYX/informatron/user/login",inputData);//http://192.168.254.101:8080/InformatronYX/informatron/user/login
-										responsePromise.success(function(response) {
+		           					$rootScope.ip = "192.168.254.102";
+		           						/*
+		           					var responsePromise =  $http.post("http://"+$rootScope.ip+":8080/InformatronYX/informatron/user/login",inputData);//http://192.168.254.101:8080/InformatronYX/informatron/user/login
+										responsePromise.success(function(data, status, header, config){
 											if(response.token !=null) {
 													if (typeof(Storage) !== "undefined") {
 			 											// Store
@@ -53,7 +53,17 @@
 										});
 										 responsePromise.error(function(response) {
 					                   		alert("AJAX failed!");
-					                		});*/
+					                		});
+	$.ajax({
+          type: 'POST',
+          url: "http://"+$rootScope.ip+":8080/InformatronYX/informatron/user/login",
+          processData: true,
+          data: inputData,
+          dataType: "json",
+          success: function (data) { alert("e"); },
+			error: function (data) { alert("error"); }
+          });*/
+								
 		        		var responsePromise = $http.get("json-test-data.json");
 		        		responsePromise.success(function(data, status, headers, config) {
 		           				if(data.token !=null) {
@@ -119,7 +129,7 @@
 					});
 				}
 				$scope.goToStore = function() {
-					$rootScope.ip = "192.168.254.101";
+					$rootScope.ip = "192.168.254.102";//http://192.168.254.102:8080/InformatronYX/store/home
 					var win = window.open("http://"+$rootScope.ip+":8080/InformatronYX/store/home", '_blank');
 						if(win){
 						    //Browser has allowed it to be opened

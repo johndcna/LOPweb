@@ -19,8 +19,6 @@
 	"128": "icon.png"
 	
 	},
-"permissions": [
-    "http://www.google.com/"
-  ]
+"permissions": ["<all_urls>"]
 
 }
