@@ -99,13 +99,24 @@
 						$scope.flag = true;
 					}
 				}
-				$scope.displayLO = function(LOsequence){
+				$scope.displayLO = function(liableLearningObjects, LOid){
 					//alert(""+LOid);// ng-include="main.html"
+					var sequence;
 					var fileName;
 					var fileExtension;
 					$("#mainDiv").empty();
+					
 
-					$.each(LOsequence, function(a,le)
+					$.each(liableLearningObjects, function(a,b){
+						if(LOid == b.id){
+							sequence = b.sequence;
+							$("#mainDiv").append("<h1>"+b.title+"</h1>");
+							$("#mainDiv").append("<h3>"+b.description+"</h3>");
+							$("#mainDiv").append("<br><br><br>");
+						}
+					});
+					
+					$.each(sequence, function(a,le)
 					{
 						fileName = le.id;
 						fileExtension = le.fileExtension;
