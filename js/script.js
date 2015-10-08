@@ -28,20 +28,20 @@
 
 				$scope.myData.doClick = function(item, event) {
 							// for information
-		           					var inputData =  {
+		           					/*var inputData =  {
 		           						'username' : $scope.username,
 		           						'password' : $scope.password
 		           					};
 		           					$rootScope.ip = "192.168.254.102";
-		           						/*
-		           					var responsePromise =  $http.post("http://"+$rootScope.ip+":8080/InformatronYX/informatron/user/login",inputData);//http://192.168.254.101:8080/InformatronYX/informatron/user/login
+		           						
+		           					//var responsePromise =  $http.post("http://"+$rootScope.ip+":8080/InformatronYX/informatron/user/login",inputData);//http://192.168.254.101:8080/InformatronYX/informatron/user/login
+									var responsePromise =  $http.post("http://posttestserver.com/post.php",inputData);
 										responsePromise.success(function(data, status, header, config){
-											if(response.token !=null) {
+											/*if(response.token !=null) {
 													if (typeof(Storage) !== "undefined") {
 			 											// Store
 			    										localStorage.setItem("jsonLogin", JSON.stringify(response));
 			    										window.location.href = "#/main";
-			    										alert(str);
 													} 
 													else {
 			  											alert("not supported");
@@ -50,6 +50,7 @@
 											else {
 													alert("Invalid username or password.");
 											}
+			    										console.log(data);
 										});
 										 responsePromise.error(function(response) {
 					                   		alert("AJAX failed!");
@@ -70,7 +71,8 @@
 									if (typeof(Storage) !== "undefined") {
 		 							// Store
 		 							localStorage.clear();
-		    						localStorage.setItem("jsonLogin", JSON.stringify(data));
+		    						//localStorage.setItem("jsonLogin", JSON.stringify(data));
+		    						localStorage["jsonLogin"] = JSON.stringify(data);
 		    							window.location.href = "#/main";
 									} 
 									else {
@@ -139,7 +141,20 @@
 						    alert('Please allow popups for this site');
 						}
 										}
-        	}
+        	
+        	$scope.goToLORI = function() {
+					var win = window.open("/lori/LORI.html", '_blank');
+						if(win){
+						    //Browser has allowed it to be opened
+						    win.focus();
+						}else{
+						    //Broswer has blocked it
+						    alert('Please allow popups for this site');
+						}
+			}
+			}
+
+        	
 		module.controller(controllers); 
 
 		/*
@@ -192,6 +207,10 @@ request.onload = function() {
   callback(req.responseText);
 };
 request.send(data);
+
+chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
+
+http://127.0.0.1/*
 		*/
 
  

@@ -7,7 +7,7 @@ document.write('<script src="LORI/js/bootstrap-modal.js" type="text/javascript" 
 		ok = 0;
 		//console.log('working');
 
-		console.log(localStorage);
+		//console.log(localStorage);
 		
 		$.checkObject($.objectName());
 		$.onClick();

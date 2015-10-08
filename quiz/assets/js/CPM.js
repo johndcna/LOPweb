@@ -929,12 +929,27 @@ newfile.Close();*/
 
 
 		var a = cp.movie.playbackController.GetQuizController();
+		var yourScore = a.GetScore();
               if (typeof(Storage) !== "undefined") {
 		 	// Store
 		 	localStorage.clear();
+			var evaluation = {	id:null,
+						lo_id:null,
+						lo_name:null,
+						lo_subject:null,
+						score:yourScore,
+						totalScore:100,
+						date_submitted:null,
+						time_started:null,
+						time_finished:null,
+						username:null,
+						user_id:null,
+						quizResults:null,
+						errorList:null,
+					 };
 		    	localStorage.setItem("jsonScore", a);//JSON.stringify(a)
 		    	//window.location.href = "#/main";
-			alert(" supported");
+			console.log(evaluation);
 		} 
 		else {
 			alert("not supported");
@@ -1086,7 +1101,7 @@ newfile.Close();*/
                 function(a, b){if (void 0 != b){var c = B[b]; c && c.HandleClickEvent && c.HandleClickEvent(a)}}; cp.clickSuccessHandler = function(a){if (a){if (a.cpa == false)a.clickedOnce = true; a.ssc && cp.movie.am.pauseCurrentSlideAudioForInteractiveClick(); var b = a.ca; b && cp.movie.am.playPauseEventAudio(b, true); var b = a.osct, c = a.osc, d = a.oca, e = null, f = true; c == void 0 && (f = false); c != void 0 && c.length < 2 && (f = false); b && f && (e = d); var g = a.pfc == 1 && b; a.handled && (g = false); var k = null; f && (k = new cp.Feedback(c, e, g, cp.FeedbackType.SUCCESS, a)); (!b || !f) &&
                 cp.movie.executeAction(d); f && k.show(); return true}return false}; cp.clickFailureHandler = function(a, b, c){var d = false; if (a){if (a.handled && "cpCmndResume = 1;" == a.oca)return true; var e = a.ofct, d = a.ofc, f = a.ofa; if (!d || d.length < 2)c = false; var g = null; e && (b && c) && (g = f); var k = null; c && (k = new cp.Feedback(d, g, false, cp.FeedbackType.FAILURE, a)); d = true; if ((!e || !c) && b){if (a.cpa == false)a.clickedOnce = true; cp.movie.executeAction(f)} else d = false; c?k.show():d = false}return d}; cp.cbKH = function(a, b, c){if (!a || (!a || !a.enabled ||
                 !b || !b.visible) || a.actionInProgress)return false; var d, e = 0, f = false, f = a.currentAttempt; f != void 0 && (e = f); if (b != void 0)d = b.dn; if (c){d && cp.SubmitInteractions(d, cp.QuestionStatusEnum.CORRECT, e); f = cp.clickSuccessHandler(a); a.handled = true; return f}b = a.ma; e = e + 1; a.currentAttempt = e; c = b != - 1 && e == b; f = b == - 1 || e <= b; d && cp.SubmitInteractions(d, cp.QuestionStatusEnum.INCORRECT, e - 1); f = cp.clickFailureHandler(a, c, f); if (!a.handled)a.handled = b != - 1 && e >= b; return f}; cp.qbKH = function(a, b, c){if (!a || !b || !a.enabled || !b.visible)return false;
-                a = a.qbt; if (!a || !c)return false; b = b.dn; if (!b)return false; b = document.getElementById(b); if (!b)return false; c = false; switch (a){case "clear":cp.quizClearButtonClickHandler(b); c = true; break; case "back":cp.quizBackButtonClickHandler(b); c = true; break; case "skip":cp.quizSkipButtonClickHandler(b); c = true; break; case "submit":cp.quizSubmitButtonClickHandler(b); c = true; break; case "submitAll":cp.quizSubmitAllButtonClickHandler(b); c = true; break; case "continue":cp.quizContinueButtonClickHandler(b); c = true; break; case "review":cp.quizReviewButtonClickHandler(b);
+                a = a.qbt; if (!a || !c)return false; b = b.dn; if (!b)return false; b = document.getElementById(b); if (!b)return false; c = false; switch (a){case "clear":cp.quizClearButtonClickHandler(b); c = true; break; case "back":cp.quizBackButtonClickHandler(b); c = true; break; case "skip":cp.quizSkipButtonClickHandler(b); c = true; break; case "submit":cp.quizSubmitButtonClickHandler(b); c = true; break; case "submitAll":cp.quizSubmitAllButtonClickHandler(b); c = true; break; case "continue":cp.quizContinueButtonClickHandler(b);c = true; break; case "review":cp.quizReviewButtonClickHandler(b);
                 c = true; break; case "retake":cp.quizRetakeButtonClickHandler(b); c = true}return c}; cp.isTEBValueCorrect = function(a, b){if (!b.vuin)return true; var c = document.getElementById(a + "_inputField"); if (!c)return false; var c = c.value, d = b.exp || [], e = b.cs, f = d.length, g = false; if (0 == f && "" == c)return true; for (var k = 0; k < f && !g; ++k)g = e?c == d[k]:c.toLowerCase() == d[k].toLowerCase(); return g}; cp.tebKH = function(a, b, c){var d = false, e = 0, d = 1E3, f = false, g; if (!a)return false; if (b && b.keyHandledOnce)return b.keyHandledOnce = false; if (!c || a &&
                 a.handled || !a || !a.enabled || !b || !b.visible)return false; c = a.currentAttempt; c != void 0 && (e = c); if (b != void 0)g = b.dn; if (d = cp.isTEBValueCorrect(a.id, a)){a.handled = true; g && cp.SubmitInteractions(g, cp.QuestionStatusEnum.CORRECT, e); return cp.clickSuccessHandler(a)}d = a.ma; e = e + 1; a.currentAttempt = e; f = d != - 1 && e == d; b = d == - 1 || e <= d; if (!a.handled)a.handled = d != - 1 && e >= d; g && cp.SubmitInteractions(g, cp.QuestionStatusEnum.INCORRECT, e - 1); return cp.clickFailureHandler(a, f, b)}; cp.ClickData = function(a, b, c){this.m_obj = a; this.m_objc =
                 b; this.m_htmlElem = c; this.m_from = a.from; this.m_to = a.to}; cp.ClickData.prototype.isValid = function(){return void 0 != this.m_obj && void 0 != this.m_objc && void 0 != this.m_htmlElem && this.m_to >= this.m_from}; cp.ClickData.prototype.isClickable = function(a){return!this.m_obj || !this.m_obj.enabled || !this.m_objc || !this.m_objc.visible?false:this.m_from <= a && a <= this.m_to}; cp.preventEventDefault = function(a){if (a)a.preventDefault?a.preventDefault():a.returnValue = false}; cp.getHitTestingRect = function(a){var b = {minX:0, minY:0,

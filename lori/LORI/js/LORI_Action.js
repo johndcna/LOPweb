@@ -12,19 +12,16 @@ jQuery.internetCheck = function() {
 
 jQuery.sendEval = function(obj) {
 	//var obj = {friend : 'lea'};
-	//var reviewer = obj.getReviewer();
-	//var title = obj.getObjectTitle();
-	//var subject = obj.getObjectSubject();
-	var evaluation = {contentQuality : obj.getContentQuality(), learningGoalAlign : obj.getLearningGoalAlign(), feedback : obj.getFeedback(), motivation : obj.getMotivation(), presentationDesign : obj.getPresentationDesign(), interactionUsability : obj.getInteractionUsability(), accessibility : obj.getAccessibility(), reusability : obj.getReusability(), standards : obj.getStandards()};
+	var Userjson = JSON.parse(localStorage.getItem("jsonLogin"));
 	var evalArr = [obj.getContentQuality(), obj.getLearningGoalAlign(), obj.getFeedback(), obj.getMotivation(), obj.getPresentationDesign(), obj.getInteractionUsability(), obj.getAccessibility(), obj.getReusability(), obj.getStandards() ];
-	//var genRemarks = obj.getGenRemarks();
-	
+	var evaluation = {id:null,evaluation: evalArr,learningObjectId:null,subject:null,errorList:null,loris:null,reviewId:null};
 	//console.log(reviews);
+	//console.log(evaluation);
 	console.log(evaluation);
 	
 		
 	  
-
+/*
         $.ajax({
         	type : 'POST',
         	//url : "http://172.31.11.208/informatron/LORIImporter.php",
@@ -40,6 +37,6 @@ jQuery.sendEval = function(obj) {
         		alert("errr!");
         	}
         });
-
+*/
         
 };
