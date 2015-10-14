@@ -11,32 +11,26 @@ jQuery.internetCheck = function() {
 };
 
 jQuery.sendEval = function(obj) {
-	//var obj = {friend : 'lea'};
-	var Userjson = JSON.parse(localStorage.getItem("jsonLogin"));
+
+	var Userjson = JSON.parse(localStorage.getItem("information"));
+
 	var evalArr = [obj.getContentQuality(), obj.getLearningGoalAlign(), obj.getFeedback(), obj.getMotivation(), obj.getPresentationDesign(), obj.getInteractionUsability(), obj.getAccessibility(), obj.getReusability(), obj.getStandards() ];
-	var evaluation = {id:null,evaluation: evalArr,learningObjectId:null,subject:null,errorList:null,loris:null,reviewId:null};
-	//console.log(reviews);
-	//console.log(evaluation);
-	console.log(evaluation);
+	var evaluation = {id:Userjson.id,evaluation: evalArr,learningObjectId:Userjson.learningObjectId,subject:Userjson
+        .subject,errorList:null,loris:Userjson.loris,reviewId:Userjson.reviewId
+    };
 	
-		
 	  
-/*
+
         $.ajax({
         	type : 'POST',
-        	//url : "http://172.31.11.208/informatron/LORIImporter.php",
-        	url : "http://172.31.11.208:8080/Informatron/evaluate",
-        	//url : "http://localhost:8080/Informatron/evaluate",
-        	data: {  evaluation : JSON.stringify(evaluation)},//reviewer : reviewer , title : title , subject : subject , evaluation : JSON.stringify(evaluation), remarks : genRemarks 
+        	url : "http://"+Userjson.ip+":8080/Informatron/lori/subject",
+        	data: {  evaluation : JSON.stringify(evaluation)}, 
         	success: function() {
-        		console.log(evalArr);
         		alert("sent!");
         	},
         	error: function() {
-        		console.log(evalArr);
+        		console.log(evaluation);
         		alert("errr!");
         	}
         });
-*/
-        
 };
