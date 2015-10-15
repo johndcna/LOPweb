@@ -19,14 +19,92 @@
             "likes": 0,
             "sequence": 
             [
-            	{
-            		"title": "Test Text",
-            		"description": null,
-            		"dateCreated": null,
-            		"id": "test",
-            		"type":"text",
-            		"fileExtension":".txt"
-            	}
+                [
+                	{
+                		"title": "Test Text",
+                		"description": null,
+                		"dateCreated": null,
+                		"id": "test",
+                		"type":"text",
+                		"fileExtension":".txt"
+                	},
+                    {
+                        "title": "Picture test",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "testpicflash",
+                        "type":"picture",
+                        "fileExtension":".png"
+                    }
+                ],
+                [
+                    {
+                        "title": "Test Picture",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "001",
+                        "type":"picture",
+                        "fileExtension":".jpg"
+                    },
+                    {
+                        "title": "Test Text",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "picture info",
+                        "type":"text",
+                        "fileExtension":".txt"
+                    },
+                    {
+                        "title": "Test audio",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "br",
+                        "type":"audio",
+                        "fileExtension":".mp3"
+                    },
+                    {
+                        "title": "Test Video",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "sugar",
+                        "type":"video",
+                        "fileExtension":".mp4"
+                    }
+                ],
+                [
+                    {
+                        "title": "Test Picture",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "001",
+                        "type":"picture",
+                        "fileExtension":".jpg"
+                    },
+                    {
+                        "title": "Test Text",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "picture info",
+                        "type":"text",
+                        "fileExtension":".txt"
+                    },
+                    {
+                        "title": "Test audio",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "br",
+                        "type":"audio",
+                        "fileExtension":".mp3"
+                    },
+                    {
+                        "title": "Test Video",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "sugar",
+                        "type":"video",
+                        "fileExtension":".mp4"
+                    }
+                ]
             ],
             "price": 0.1
         },
@@ -40,14 +118,58 @@
             "likes": 0,
             "sequence": 
             [
-            	{
-            		"title": "Picture test",
-            		"description": null,
-            		"dateCreated": null,
-            		"id": "testpicflash",
-            		"type":"picture",
-            		"fileExtension":".png"
-            	}
+            	[
+                    {
+                        "title": "Test Text",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "test",
+                        "type":"text",
+                        "fileExtension":".txt"
+                    },
+                    {
+                    "title": "Picture test",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "testpicflash",
+                    "type":"picture",
+                    "fileExtension":".png"
+                    }
+                ],
+                [
+                    {
+                        "title": "Test Picture",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "001",
+                        "type":"picture",
+                        "fileExtension":".jpg"
+                    },
+                    {
+                        "title": "Test Text",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "picture info",
+                        "type":"text",
+                        "fileExtension":".txt"
+                    },
+                    {
+                        "title": "Test audio",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "br",
+                        "type":"audio",
+                        "fileExtension":".mp3"
+                    },
+                    {
+                        "title": "Test Video",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "sugar",
+                        "type":"video",
+                        "fileExtension":".mp4"
+                    }
+                ]
             ],
             "price": 3
         },
@@ -61,14 +183,86 @@
             "likes": 0,
             "sequence": 
             [
-            	{
-            		"title": "Test Audio",
-            		"description": null,
-            		"dateCreated": null,
-            		"id": "br",
-            		"type":"audio",
-            		"fileExtension":".mp3"
-            	}
+            	[
+                    {
+                        "title": "Test Text",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "test",
+                        "type":"text",
+                        "fileExtension":".txt"
+                    },
+                    {
+                    "title": "Picture test",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "testpicflash",
+                    "type":"picture",
+                    "fileExtension":".png"
+                    }
+                ],
+                [
+                    {
+                        "title": "Test Picture",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "001",
+                        "type":"picture",
+                        "fileExtension":".jpg"
+                    },
+                    {
+                    "title": "Picture test",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "testpicflash",
+                    "type":"picture",
+                    "fileExtension":".png"
+                    }
+                ],
+                [
+                    {
+                        "title": "Test Picture",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "001",
+                        "type":"picture",
+                        "fileExtension":".jpg"
+                    },
+                    {
+                    "title": "Picture test",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "testpicflash",
+                    "type":"picture",
+                    "fileExtension":".png"
+                    }
+                ],
+                [
+                    {
+                        "title": "Test Picture",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "001",
+                        "type":"picture",
+                        "fileExtension":".jpg"
+                    },
+                    {
+                    "title": "Picture test",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "testpicflash",
+                    "type":"picture",
+                    "fileExtension":".png"
+                    },
+                    {
+                    "title": "Picture test",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "testpicflash",
+                    "type":"picture",
+                    "fileExtension":".png"
+                    }
+                ]
             ],
             "price": 5.3
         },
@@ -82,14 +276,34 @@
             "likes": 0,
             "sequence": 
             [
-                {
-                    "title": "Test Video",
+                [
+                    {
+                        "title": "Test Text",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "test",
+                        "type":"text",
+                        "fileExtension":".txt"
+                    },
+                    {
+                    "title": "Picture test",
                     "description": null,
                     "dateCreated": null,
-                    "id": "sugar",
-                    "type":"video",
-                    "fileExtension":".mp4"
-                }
+                    "id": "testpicflash",
+                    "type":"picture",
+                    "fileExtension":".png"
+                    }
+                ],
+                [
+                    {
+                        "title": "Test Picture",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "001",
+                        "type":"picture",
+                        "fileExtension":".jpg"
+                    }
+                ]
             ],
             "price": 5.3
         },
@@ -103,38 +317,42 @@
             "likes": 0,
             "sequence": 
             [
-                {
-                    "title": "Test Picture",
-                    "description": null,
-                    "dateCreated": null,
-                    "id": "001",
-                    "type":"picture",
-                    "fileExtension":".jpg"
-                },
-                {
-                    "title": "Test Text",
-                    "description": null,
-                    "dateCreated": null,
-                    "id": "picture info",
-                    "type":"text",
-                    "fileExtension":".txt"
-                },
-                {
-                    "title": "Test audio",
-                    "description": null,
-                    "dateCreated": null,
-                    "id": "br",
-                    "type":"audio",
-                    "fileExtension":".mp3"
-                },
-                {
-                    "title": "Test Video",
-                    "description": null,
-                    "dateCreated": null,
-                    "id": "sugar",
-                    "type":"video",
-                    "fileExtension":".mp4"
-                }
+                [
+                    {
+                        "title": "Test audio",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "br",
+                        "type":"audio",
+                        "fileExtension":".mp3"
+                    },
+                    {
+                        "title": "Test Video",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "sugar",
+                        "type":"video",
+                        "fileExtension":".mp4"
+                    }
+                ],
+                [
+                    {
+                        "title": "Test Picture",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "001",
+                        "type":"picture",
+                        "fileExtension":".jpg"
+                    },
+                    {
+                        "title": "Test Text",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "picture info",
+                        "type":"text",
+                        "fileExtension":".txt"
+                    }
+                ]
             ],
             "price": 5.3
         }

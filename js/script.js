@@ -93,7 +93,13 @@
         		$scope.data = JSON.parse(localStorage.getItem("jsonLogin"));
         		$scope.name = $scope.data.username;
         		$scope.flag;
+        		$scope.pagingFlag;
         		$rootScope.ip = "192.168.254.102";
+		        $scope.pageLength;
+				$scope.arr = [];
+				$scope.currentSequence;
+				$scope.currentId;
+
         		$scope.showLO = function() {
 					if($scope.flag == true){
 						$scope.flag = false;
@@ -101,16 +107,33 @@
 						$scope.flag = true;
 					}
 				}
-				$scope.displayLO = function(liableLearningObjects, LOid){
+
+				$scope.showPaging = function(){
+
+					if($scope.pagingFlag == true){
+						$scope.pagingFlag = false;
+
+					}else{
+						$scope.pagingFlag = true;
+					}
+					alert('nisulod ' + $scope.pagingFlag);
+				}
+
+				$scope.displayLO = function(liableLearningObjects, LOid, page){
 					//alert(""+LOid);// ng-include="main.html"
 					var sequence;
 					var fileName;
 					var fileExtension;
+					$scope.arr = [];
+					$scope.currentSequence = liableLearningObjects;
+					$scope.currentId = LOid;
 					$("#mainDiv").empty();
+
+					$scope.pagingFlag = true;
 					
 
-					$.each(liableLearningObjects, function(a,b){
-						if(LOid == b.id){
+					$.each($scope.currentSequence, function(a,b){
+						if($scope.currentId == b.id){
 							sequence = b.sequence;
 							$("#mainDiv").append("<h1>"+b.title+"</h1>");
 							$("#mainDiv").append("<h3>"+b.description+"</h3>");
@@ -118,7 +141,38 @@
 						}
 					});
 					
-					$.each(sequence, function(a,le)
+					$.each(sequence, function(a,b)
+					{
+						$scope.arr.push(a+1);
+						$.each(b, function(c,d)
+						{
+							if(page == a){
+								fileName = d.id;
+								fileExtension = d.fileExtension;
+								if(d.type == "text")
+								{
+									$("#mainDiv").append("<object width='500' height='300' type='text/plain' data='le/"+fileName+fileExtension+"' border='0'>");
+								}
+								else if(d.type == "picture")
+								{
+									$("#mainDiv").append("<img src='le/"+fileName+fileExtension+"' alt='Mountain View'>");
+								}
+								else if(d.type == "audio")
+								{
+									$("#mainDiv").append("<audio controls><source src='le/"+fileName+fileExtension+"' type='audio/mpeg'>Your browser does not support the audio element.</audio>");
+								}
+								else if(d.type == "video")
+								{
+									$("#mainDiv").append("<video width='320' height='240' controls><source src='le/"+fileName+fileExtension+"' type='video/mp4'>Your browser does not support the video tag.</video>");
+								}
+								$("#mainDiv").append("<br><br><br><br>");
+							}
+						});
+					});
+					//alert($scope.arr.length);
+					$scope.pageLength = arr.length;
+					$scope.$apply();
+					/*$.each(page, function(a,le)
 					{
 						fileName = le.id;
 						fileExtension = le.fileExtension;
@@ -139,7 +193,11 @@
 							$("#mainDiv").append("<video width='320' height='240' controls><source src='le/"+fileName+fileExtension+"' type='video/mp4'>Your browser does not support the video tag.</video>");
 						}
 						$("#mainDiv").append("<br>");
-					});
+					});*/
+				}
+
+				$scope.hey = function(){
+					alert($scope.pageLength);
 				}
 				$scope.goToStore = function() {
 

@@ -17,21 +17,34 @@
                 </div>
                 <div class="row list">
                     <ul>
-
-                        <h4 style="color:white" ng-click="showLO()" ng-init="flag=false">Learning Objects</h4>
+                        <h4 style="color:white" ng-click="showLO()" >Learning Objects</h4>
                             <div class="los" ng-if="flag">
-                                <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> <div ng-click="displayLO(data.liableLearningObjects, x.id)">{{x.title}}</div></li>
+                                <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> 
+                                    <div ng-click="displayLO(data.liableLearningObjects, x.id,0)" ng-init="pagingFlag = false">                        
+                                            {{x.title}}
+                                    </div>
+                                </li>
                             </div>
-                        <h4 style="color:white" ng-click="goToStore()">Open LO Store</h4>    
-                        <h4 style="color:white" ng-click="goToQuiz(123,23,'lo1','philnits','2','3')">Open Quiz</h4> 
-                        <h4 style="color:white" ng-click="goToLORI(111,22,'The Subject',123,123)">Open LORI</h4>    
+                            <h4 style="color:white;" ng-click="goToStore()">Open LO Store </h4>
                     </ul>
                 </div>
             </div>
              <!-- LO form -->
-            <div class="col-md-9 playzone jumbotron" id="mainDiv">
-                
+            <div class="col-md-9 playzone jumbotron" id="loForm">
+                <div id="mainDiv">
+                    
+                </div>
+                <div  ng-if="pagingFlag">
+                    <ul style="display:inline;">
+                        <li style="color:black; list-style-type:none; display:inline;" ng-repeat="x in arr">
+                            <h4 style="color:black; display:inline;" ng-click="displayLO(currentSequence,currentId,x-1)"> {{x}} </h4>  
+                        </li>
+                    </ul> 
+                    <h4 style="color:black; display:inline;" ng-click="goToQuiz(123,23,'lo1','philnits','2','3')">Quiz  </h4> 
+                    <h4 style="color:black; display:inline;" ng-click="goToLORI(111,22,'The Subject',123,123)">LORI  </h4>   
+                </div>
             </div>
+            
         </div>
     </div>
 
