@@ -51,3 +51,7 @@ html, body{
 .list ul {
     padding:0px;
 }
+
+h4, .los {
+    cursor:pointer;
+}
