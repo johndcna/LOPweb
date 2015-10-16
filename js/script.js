@@ -28,12 +28,12 @@
 
 				$scope.myData.doClick = function(item, event) {
 							// for information
-							/*
+							
 		           					var data =  {
 		           						username : $scope.username,
 		           						password : $scope.password
 		           					};
-		           					$rootScope.ip = "192.168.254.102";
+		           					$rootScope.ip = "192.168.43.10";
 											var prom = $http.post("http://"+$rootScope.ip+":8080/InformatronYX/informatron/user/login",JSON.stringify(data));
 											prom.success(function(response){
 												if(response.token != null) {
@@ -52,8 +52,8 @@
 											});
 											prom.error(function (response){
 												alert(response);
-											});*/
-											var responsePromise = $http.get("json-test-data.json");
+											});
+								/*			var responsePromise = $http.get("json-test-data.json");
 		        		responsePromise.success(function(data, status, headers, config) {
 		           				if(data.token !=null) {
 									if (typeof(Storage) !== "undefined") {
@@ -74,7 +74,7 @@
 		                responsePromise.error(function(data, status, headers, config) {
 		                    alert("AJAX failed!");
 		                });
-
+						*/
 	        	}
         	}
 
@@ -83,7 +83,7 @@
         		$scope.name = $scope.data.username;
         		$scope.flag;
         		$scope.pagingFlag;
-        		$rootScope.ip = "192.168.254.102";
+        		$rootScope.ip = "192.168.43.10";
 		        $scope.pageLength;
 				$scope.arr = [];
 				$scope.currentSequence;
@@ -219,14 +219,14 @@
 							    alert('Please allow popups for this site');
 							}
 				}
-				$scope.goToQuiz = function(id,loid,loname,losubject,username,userid) {
+				$scope.goToQuiz = function(id,loid,loname,losubject,userName,userid) {
 							var info = JSON.stringify({
 								ip: $rootScope.ip,
 								id:id, 
 								lo_id: loid, 
 								lo_name: loname,
 								lo_subject:losubject,
-								lo_subject:username,
+								username:userName,
 								user_id:userid
 							});
 									localStorage["information"] = info;
