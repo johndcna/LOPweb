@@ -9,6 +9,15 @@ body {
     text-align: center;
 }
 
+.loginform {
+	position:relative;
+	top:20em;
+}
+
+.loginform div {
+	margin-top:20px;
+}
+
 div.log {
     width: 100%;
 }
