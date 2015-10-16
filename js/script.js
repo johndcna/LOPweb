@@ -28,16 +28,15 @@
 
 				$scope.myData.doClick = function(item, event) {
 							// for information
-		           					/*var inputData =  {
-		           						'username' : $scope.username,
-		           						'password' : $scope.password
+							/*
+		           					var data =  {
+		           						username : $scope.username,
+		           						password : $scope.password
 		           					};
 		           					$rootScope.ip = "192.168.254.102";
-		           						
-		           					//var responsePromise =  $http.post("http://"+$rootScope.ip+":8080/InformatronYX/informatron/user/login",inputData);//http://192.168.254.101:8080/InformatronYX/informatron/user/login
-									var responsePromise =  $http.post("http://posttestserver.com/post.php",inputData);
-										responsePromise.success(function(data, status, header, config){
-											/*if(response.token !=null) {
+											var prom = $http.post("http://"+$rootScope.ip+":8080/InformatronYX/informatron/user/login",JSON.stringify(data));
+											prom.success(function(response){
+												if(response.token != null) {
 													if (typeof(Storage) !== "undefined") {
 			 											// Store
 			    										localStorage.setItem("jsonLogin", JSON.stringify(response));
@@ -50,22 +49,11 @@
 											else {
 													alert("Invalid username or password.");
 											}
-			    										console.log(data);
-										});
-										 responsePromise.error(function(response) {
-					                   		alert("AJAX failed!");
-					                		});response.addHeader("Access-Control-Allow-Origin", "*");
-	$.ajax({
-          type: 'POST',
-          url: "http://"+$rootScope.ip+":8080/InformatronYX/informatron/user/login",
-          processData: true,
-          data: inputData,
-          dataType: "json",
-          success: function (data) { alert("e"); },
-			error: function (data) { alert("error"); }
-          });*/
-								
-		        		var responsePromise = $http.get("json-test-data.json");
+											});
+											prom.error(function (response){
+												alert(response);
+											});*/
+											var responsePromise = $http.get("json-test-data.json");
 		        		responsePromise.success(function(data, status, headers, config) {
 		           				if(data.token !=null) {
 									if (typeof(Storage) !== "undefined") {
@@ -86,6 +74,7 @@
 		                responsePromise.error(function(data, status, headers, config) {
 		                    alert("AJAX failed!");
 		                });
+
 	        	}
         	}
 
@@ -251,6 +240,9 @@
 							}
 
 						}
+				$scope.goToDownload = function(test) {
+					window.location.href = "http://"+$rootScope.ip+":8080/InformatronYX/informatron/connect/download/test/"+test+".png";
+				}
 
         	}
 		module.controller(controllers); 
