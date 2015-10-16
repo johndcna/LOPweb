@@ -6,14 +6,14 @@ if (window.attachEvent) {
 }
 else {
     observe = function (element, event, handler) {
-        element.addEventListener(event, handler, false);
+       // element.addEventListener(event, handler, false);
     };
 }
 function init () {
     var text = document.getElementById('text-remarks');
     function resize () {
-        text.style.height = 'auto';
-        text.style.height = text.scrollHeight+'px';
+       // text.style.height = 'auto';
+       // text.style.height = text.scrollHeight+'px';
     }
     /* 0-timeout to get the already changed text */
     function delayedResize () {
@@ -25,7 +25,7 @@ function init () {
     observe(text, 'drop',    delayedResize);
     observe(text, 'keydown', delayedResize);
 
-    text.focus();
-    text.select();
+   // text.focus();
+    //text.select();
     resize();
 }
