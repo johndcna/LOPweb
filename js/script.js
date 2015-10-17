@@ -28,7 +28,7 @@
 
 				$scope.myData.doClick = function(item, event) {
 							// for information
-							
+							/*
 		           					var data =  {
 		           						username : $scope.username,
 		           						password : $scope.password
@@ -52,8 +52,8 @@
 											});
 											prom.error(function (response){
 												alert(response);
-											});
-								/*			var responsePromise = $http.get("json-test-data.json");
+											});*/
+											var responsePromise = $http.get("json-test-data.json");
 		        		responsePromise.success(function(data, status, headers, config) {
 		           				if(data.token !=null) {
 									if (typeof(Storage) !== "undefined") {
@@ -74,7 +74,7 @@
 		                responsePromise.error(function(data, status, headers, config) {
 		                    alert("AJAX failed!");
 		                });
-						*/
+						
 	        	}
         	}
 
@@ -117,16 +117,25 @@
 					$scope.currentSequence = liableLearningObjects;
 					$scope.currentId = LOid;
 					$("#mainDiv").empty();
-
-					$scope.pagingFlag = true;
-					
-
+					$scope.pagingFlag = true;//id,loid,loname,losubject,userName,userid
+					$scope.jsonLogin = JSON.parse(localStorage.getItem("jsonLogin"));
+					$scope.quizID;
+					$scope.quizLOID;
+					$scope.quizLONAME;
+					$scope.quizLOSUBJECT;
+					$scope.quizUSERNAME;
+					$scope.quizUSERID;
 					$.each($scope.currentSequence, function(a,b){
 						if($scope.currentId == b.id){
 							sequence = b.sequence;
 							$("#mainDiv").append("<h1>"+b.title+"</h1>");
 							$("#mainDiv").append("<h3>"+b.description+"</h3>");
 							$("#mainDiv").append("<br><br><br>");
+							$scope.quizLOID = b.id;
+							$scope.quizLONAME = b.title;
+							$scope.quizLOSUBJECT = b.subject;
+							$scope.quizUSERNAME = $scope.jsonLogin.username;
+							$scope.quizUSERID  = $scope.jsonLogin.id;
 						}
 					});
 					
