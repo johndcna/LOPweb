@@ -1,8 +1,5 @@
 body {
-    background: url(../images/background.jpg) no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: 50% 50%;
+    background-color: #FF6F00;
     font-family: 'Open Sans', sans-serif;
     font-size: 200%;
     width: 100%;
@@ -16,6 +13,10 @@ body {
 
 .loginform div {
 	margin-top:20px;
+}
+
+h1 {
+    font-size: 5.9vw;
 }
 
 div.log {
