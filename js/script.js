@@ -163,6 +163,70 @@
 								{
 									$("#mainDiv").append("<video width='320' height='240' controls><source src='le/"+fileName+fileExtension+"' type='video/mp4'>Your browser does not support the video tag.</video>");
 								}
+								/*
+								if(d.type == "text")
+								{
+									var txtFile ="le/"+fileName+fileExtension;
+									$.get(txtFile).
+									    done(function(data) {
+									         $("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+txtFile+" border='0'>");	
+									    	 $("#mainDiv").append("<br>");
+									    }).
+									    fail(function() {
+									        var textDownload = "http://"+$rootScope.ip+":8080/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+									    	$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+textDownload+" border='0'>");	
+									    	$("#mainDiv").append("<br>");
+									    	//window.location.href = textDownload;
+									    });				
+								}
+								else if(d.type == "picture")
+								{
+									var imgFile ="le/"+fileName+fileExtension;
+									$.get(imgFile).
+									    done(function(data) {
+									         $("#mainDiv").append("<img src="+imgFile+" alt='Mountain View'>");
+									    	 $("#mainDiv").append("<br>");
+									    }).
+									    fail(function() {
+									        var imgDownload = "http://"+$rootScope.ip+":8080/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+									    	$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+imgDownload+" border='0'>");	
+									    	$("#mainDiv").append("<br>");
+									    	//window.location.href = imgDownload;
+									    });	
+								}
+								else if(d.type == "audio")
+								{
+									var audFile ="le/"+fileName+fileExtension;
+									$.get(audFile).
+									    done(function(data) {
+											$("#mainDiv").append("<audio controls><source src="+audFile+" type='audio/mpeg'>Your browser does not support the audio element.</audio>");        
+									    	$("#mainDiv").append("<br>");
+									    }).
+									    fail(function() {
+									        var audDownload = "http://"+$rootScope.ip+":8080/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+									    	$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+audDownload+" border='0'>");	
+									    	$("#mainDiv").append("<br>");
+									    	//window.location.href = audDownload;
+									    });	
+									
+								}
+								else if(d.type == "video")
+								{
+									var vidFile ="le/"+fileName+fileExtension;
+									$.get(vidFile).
+									    done(function(data) {
+											$("#mainDiv").append("<video width='320' height='240' controls><source src="+vidFile+" type='video/mp4'>Your browser does not support the video tag.</video>");        
+									    	$("#mainDiv").append("<br>");
+									    }).
+									    fail(function() {
+									        var vidDownload = "http://"+$rootScope.ip+":8080/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+									    	$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+vidDownload+" border='0'>");	
+									    	$("#mainDiv").append("<br>");
+									    	//window.location.href = vidDownload;
+									    });
+									
+								}
+								*/
 								$("#mainDiv").append("<br><br><br><br>");
 							}
 						});
