@@ -81,13 +81,24 @@
         	controllers.TaskbarController = function($scope,$http,$rootScope){
         		$scope.data = JSON.parse(localStorage.getItem("jsonLogin"));
         		$scope.name = $scope.data.username;
+        		$scope.playlist;
         		$scope.flag;
         		$scope.pagingFlag;
+        		$scope.playlistFlag = false;
+        		$scope.selectedPlaylistFlag = false;
+        		$scope.showPlaylistFlag;
         		$rootScope.ip = "192.168.43.10";
 		        $scope.pageLength;
 				$scope.arr = [];
 				$scope.currentSequence;
 				$scope.currentId;
+				$scope.currentPlaylist = [];
+				$scope.playlistLOs = [];
+
+				$.getJSON('playlist.json', function(data) {
+  					//console.log(data);
+  					$scope.playlist = data;
+				});
 
         		$scope.showLO = function() {
 					if($scope.flag == true){
@@ -125,6 +136,8 @@
 					$scope.quizLOSUBJECT;
 					$scope.quizUSERNAME;
 					$scope.quizUSERID;
+					$scope.playlistFlag = false;
+        			$scope.selectedPlaylistFlag = false;
 					$.each($scope.currentSequence, function(a,b){
 						if($scope.currentId == b.id){
 							sequence = b.sequence;
@@ -316,6 +329,46 @@
 				$scope.goToDownload = function(test) {
 					window.location.href = "http://"+$rootScope.ip+":8080/InformatronYX/informatron/connect/download/test/"+test+".png";
 				}
+
+				$scope.getPlaylist = function(){
+					//alert($scope.playlist.users);
+					$("#mainDiv").empty();
+					$scope.pagingFlag = false;
+					$scope.playlistFlag = true;
+        			$scope.selectedPlaylistFlag = false;
+					var userPlaylist;
+					$scope.currentPlaylist = [];
+					$.each($scope.playlist.users, function(index, object){
+						if(object.id == $scope.data.id){
+							//alert('yay' + object.id);
+							$.each(object.playlist, function(index, playlist){
+								$scope.currentPlaylist.push(playlist);
+							});
+						}
+					});
+				}
+
+				$scope.showPlaylist = function(playlistId, playlistTitle){
+					$("#mainDiv").empty();
+					$("#mainDiv").append("<h1>"+playlistTitle+"</h1>");
+					$("#mainDiv").append("<br><br>");
+        			$scope.selectedPlaylistFlag = true;
+        			$scope.playlistFlag = false;
+        			$scope.playlistLOs = [];
+					$.each($scope.currentPlaylist, function(index, playlist){
+						if(playlistId == playlist.playlistId)
+						{
+							//alert('wow nisakto wow' + playlistId);
+							$.each(playlist.los, function(index, losInPlaylist){
+								$scope.playlistLOs.push(losInPlaylist);
+							});
+						}
+					});
+				}
+
+				//$scope.addLOtoPlaylist = function(){
+
+				//}
 
         	}
 		module.controller(controllers); 

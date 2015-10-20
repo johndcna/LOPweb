@@ -18,7 +18,7 @@
                 </div>
                 <div class="row list">
                     <ul>
-                        <h4 style="color:white" ng-click="showLO()" >Learning Objects</h4>
+                        <h4 style="color:white" ng-click="showLO()">Learning Objects</h4>
                             <div class="los" ng-if="flag">
                                 <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> 
                                     <div ng-click="displayLO(data.liableLearningObjects, x.id,0)" ng-init="pagingFlag = false">                        
@@ -28,6 +28,7 @@
                             </div>
                             <h4 style="color:white;" ng-click="goToStore()">Open LO Store </h4>
                             <h4 style="color:white;" ng-click="goToDownload('test')">Test Download </h4>
+                            <h4 style="color:white;" ng-click="getPlaylist()">Playlist</h4>
                     </ul>
                 </div>
             </div>
@@ -44,6 +45,22 @@
                     </ul> 
                     <h4 style="color:black; display:inline;" ng-click="goToQuiz(1,quizLOID,quizLONAME,quizLOSUBJET,quizUSERNAME,quizUSERID)">Quiz  </h4> 
                     <h4 style="color:black; display:inline;" ng-click="goToLORI('1',quizLOID,quizLOSUBJET,'2','3')">LORI  </h4>  
+                    <!--<h4 style="color:black; " ng-click="addLOtoPlaylist()">Add LO to playlist</h4>-->
+                </div>
+                <div ng-if="playlistFlag">
+                    <ul style = "display:inline;">
+                        <li style="color:black; list-style-type:none; display:inline;" ng-repeat="x in currentPlaylist">
+                                <h4 style="color:black;" ng-click="showPlaylist(x.playlistId, x.playlistTitle)"> {{x.playlistTitle}} </h4>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-if="selectedPlaylistFlag">
+                    <ul>
+                        <li style="color:black; list-style-type:none; display:inline;" ng-repeat="x in playlistLOs">
+                                <h4 style="color:black;" ng-click="displayLO(data.liableLearningObjects, x.id,0)"> {{x.title}} </h4>
+                        </li>
+
+                    </ul>
                 </div>
             </div>
             
