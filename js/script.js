@@ -22,8 +22,17 @@
         
 		        $scope.myData = {};
 					
-				$scope.test = function() {
-					alert("click");
+				$scope.test = function(filename, text) {
+					var element = document.createElement('a');
+					  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+					  element.setAttribute('download', filename);
+
+					  element.style.display = 'none';
+					  document.body.appendChild(element);
+
+					  element.click();
+
+					  document.body.removeChild(element);
 				}
 
 				$scope.myData.doClick = function(item, event) {
@@ -54,6 +63,7 @@
 											prom.error(function (response){
 												alert(response);
 											});*/
+											
 											var responsePromise = $http.get("json-test-data.json");
 		        		responsePromise.success(function(data, status, headers, config) {
 		         				if(data.token !=null) {
@@ -63,7 +73,7 @@
 		    						//localStorage.setItem("jsonLogin", JSON.stringify(data));
 		    						localStorage["jsonLogin"] = JSON.stringify(data);
 		    							window.location.href = "#/main";
-		    							//window.location.href = JSON.stringify(data)+".json";
+		    							$scope.test(data.id+'.json',JSON.stringify(data));
 									} 
 									else {
 		  								alert("not supported");
