@@ -33,7 +33,7 @@
 					                        "description": null,
 					                        "dateCreated": null,
 					                        "id": "testpicflash",
-					                        "type":"picture",
+					                        "type":"image",
 					                        "fileExtension":".png"
 					                    }
 					                ],
@@ -43,7 +43,7 @@
 					                        "description": null,
 					                        "dateCreated": null,
 					                        "id": "001",
-					                        "type":"picture",
+					                        "type":"image",
 					                        "fileExtension":".jpg"
 					                    },
 					                    {
@@ -77,7 +77,7 @@
 					                        "description": null,
 					                        "dateCreated": null,
 					                        "id": "001",
-					                        "type":"picture",
+					                        "type":"image",
 					                        "fileExtension":".jpg"
 					                    },
 					                    {
@@ -132,7 +132,7 @@
 					                    "description": null,
 					                    "dateCreated": null,
 					                    "id": "testpicflash",
-					                    "type":"picture",
+					                    "type":"image",
 					                    "fileExtension":".png"
 					                    }
 					                ],
@@ -142,7 +142,7 @@
 					                        "description": null,
 					                        "dateCreated": null,
 					                        "id": "001",
-					                        "type":"picture",
+					                        "type":"image",
 					                        "fileExtension":".jpg"
 					                    },
 					                    {
@@ -150,7 +150,7 @@
 					                    "description": null,
 					                    "dateCreated": null,
 					                    "id": "testpicflash",
-					                    "type":"picture",
+					                    "type":"image",
 					                    "fileExtension":".png"
 					                    }
 					                ],
@@ -160,7 +160,7 @@
 					                        "description": null,
 					                        "dateCreated": null,
 					                        "id": "001",
-					                        "type":"picture",
+					                        "type":"image",
 					                        "fileExtension":".jpg"
 					                    },
 					                    {
@@ -168,7 +168,7 @@
 					                    "description": null,
 					                    "dateCreated": null,
 					                    "id": "testpicflash",
-					                    "type":"picture",
+					                    "type":"image",
 					                    "fileExtension":".png"
 					                    }
 					                ],
@@ -178,7 +178,7 @@
 					                        "description": null,
 					                        "dateCreated": null,
 					                        "id": "001",
-					                        "type":"picture",
+					                        "type":"image",
 					                        "fileExtension":".jpg"
 					                    },
 					                    {
@@ -186,7 +186,7 @@
 					                    "description": null,
 					                    "dateCreated": null,
 					                    "id": "testpicflash",
-					                    "type":"picture",
+					                    "type":"image",
 					                    "fileExtension":".png"
 					                    },
 					                    {
@@ -194,7 +194,7 @@
 					                    "description": null,
 					                    "dateCreated": null,
 					                    "id": "testpicflash",
-					                    "type":"picture",
+					                    "type":"image",
 					                    "fileExtension":".png"
 					                    }
 					                ]
@@ -208,7 +208,112 @@
 					"playlistTitle":"Newly Added",
 					"los":
 						[
-
+							{
+            "id": 1,
+            "title": "LO 2",
+            "subject": null,
+            "description": null,
+            "downloads": 33,
+            "uploadDate": null,
+            "likes": 0,
+            "sequence": 
+            [
+            	[
+                    {
+                        "title": "Test Text",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "test",
+                        "type":"text",
+                        "fileExtension":".txt"
+                    },
+                    {
+                    "title": "Picture test",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "testpicflash",
+                    "type":"image",
+                    "fileExtension":".png"
+                    }
+                ],
+                [
+                    {
+                        "title": "Test Picture",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "001",
+                        "type":"image",
+                        "fileExtension":".jpg"
+                    },
+                    {
+                        "title": "Test Text",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "picture info",
+                        "type":"text",
+                        "fileExtension":".txt"
+                    },
+                    {
+                        "title": "Test audio",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "br",
+                        "type":"audio",
+                        "fileExtension":".mp3"
+                    },
+                    {
+                        "title": "Test Video",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "sugar",
+                        "type":"video",
+                        "fileExtension":".mp4"
+                    }
+                ]
+            ],
+            "price": 3
+        },
+        {
+            "id": 3,
+            "title": "LO 4",
+            "subject": null,
+            "description": null,
+            "downloads": 1,
+            "uploadDate": null,
+            "likes": 0,
+            "sequence": 
+            [
+                [
+                    {
+                        "title": "Test Text",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "test",
+                        "type":"text",
+                        "fileExtension":".txt"
+                    },
+                    {
+                    "title": "Picture test",
+                    "description": null,
+                    "dateCreated": null,
+                    "id": "testpicflash",
+                    "type":"image",
+                    "fileExtension":".png"
+                    }
+                ],
+                [
+                    {
+                        "title": "Test Picture",
+                        "description": null,
+                        "dateCreated": null,
+                        "id": "001",
+                        "type":"image",
+                        "fileExtension":".jpg"
+                    }
+                ]
+            ],
+            "price": 5.3
+        }
 						]
 				}
 			]

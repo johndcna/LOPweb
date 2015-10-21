@@ -38,7 +38,7 @@ jQuery.sendEval = function(obj) {
 
 	var evalArr = [obj.getContentQuality(), obj.getLearningGoalAlign(), obj.getFeedback(), obj.getMotivation(), obj.getPresentationDesign(), obj.getInteractionUsability(), obj.getAccessibility(), obj.getReusability(), obj.getStandards() ];
 	var evaluation = {
-        id:Userjson.id,
+        //id:Userjson.id,
         evaluation: evalArr,
         learningObjectId:Userjson.learningObjectId,
         subject:Userjson.subject,
@@ -49,7 +49,7 @@ jQuery.sendEval = function(obj) {
         $.ajax({
             
         	type : 'POST',
-        	url : "http://"+Userjson.ip+":8080/InformatronYX/informatron/lori/submit",
+        	url : "http://"+Userjson.ip+":"+Userjson.port+"/InformatronYX/informatron/lori/submit",
         	data: JSON.stringify(evaluation),//evaluation : JSON.stringify(evaluation)
             dataType: 'json',
             contentType: "application/json;charset=utf-8",

@@ -13,7 +13,7 @@
             	
             	.otherwise({
                    	redirectTo: '/'
-                });//http://+$rootScope.ip+:8080/InformatronYX/store/home
+                });
         }]);
 
         var controllers = {}; 
@@ -28,19 +28,20 @@
 
 				$scope.myData.doClick = function(item, event) {
 							// for information
-							/*
-		           					var data =  {
+									$rootScope.ip = "192.168.254.104";
+		           					$rootScope.port = "8080";
+		           				/*	var data =  {
 		           						username : $scope.username,
 		           						password : $scope.password
-		           					};
-		           					$rootScope.ip = "192.168.43.10";
-											var prom = $http.post("http://"+$rootScope.ip+":8080/InformatronYX/informatron/user/login",JSON.stringify(data));
+		           					};		
+											var prom = $http.post("http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/user/login",JSON.stringify(data));
 											prom.success(function(response){
 												if(response.token != null) {
 													if (typeof(Storage) !== "undefined") {
 			 											// Store
 			    										localStorage.setItem("jsonLogin", JSON.stringify(response));
 			    										window.location.href = "#/main";
+			    										console.log(JSON.stringify(response));
 													} 
 													else {
 			  											alert("not supported");
@@ -55,13 +56,14 @@
 											});*/
 											var responsePromise = $http.get("json-test-data.json");
 		        		responsePromise.success(function(data, status, headers, config) {
-		           				if(data.token !=null) {
+		         				if(data.token !=null) {
 									if (typeof(Storage) !== "undefined") {
 		 							// Store
 		 							localStorage.clear();
 		    						//localStorage.setItem("jsonLogin", JSON.stringify(data));
 		    						localStorage["jsonLogin"] = JSON.stringify(data);
 		    							window.location.href = "#/main";
+		    							//window.location.href = JSON.stringify(data)+".json";
 									} 
 									else {
 		  								alert("not supported");
@@ -87,7 +89,8 @@
         		$scope.playlistFlag = false;
         		$scope.selectedPlaylistFlag = false;
         		$scope.showPlaylistFlag;
-        		$rootScope.ip = "192.168.43.10";
+        		$rootScope.ip = "192.168.254.104";
+		        $rootScope.port = "8080";
 		        $scope.pageLength;
 				$scope.arr = [];
 				$scope.currentSequence;
@@ -138,6 +141,7 @@
 					$scope.quizUSERID;
 					$scope.playlistFlag = false;
         			$scope.selectedPlaylistFlag = false;
+        			console.log($scope.jsonLogin);
 					$.each($scope.currentSequence, function(a,b){
 						if($scope.currentId == b.id){
 							sequence = b.sequence;
@@ -164,7 +168,7 @@
 								{
 									$("#mainDiv").append("<object width='500' height='300' type='text/plain' data='le/"+fileName+fileExtension+"' border='0'>");
 								}
-								else if(d.type == "picture")
+								else if(d.type == "image")
 								{
 									$("#mainDiv").append("<img src='le/"+fileName+fileExtension+"' alt='Mountain View'>");
 								}
@@ -186,13 +190,14 @@
 									    	 $("#mainDiv").append("<br>");
 									    }).
 									    fail(function() {
-									        var textDownload = "http://"+$rootScope.ip+":8080/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
-									    	$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+textDownload+" border='0'>");	
-									    	$("#mainDiv").append("<br>");
-									    	//window.location.href = textDownload;
+									        var textDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+									    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+textDownload+" border='0'>");	
+									    	//$("#mainDiv").append("<br>");
+									    	//alert('dl text');
+									    	window.location.href = textDownload;
 									    });				
 								}
-								else if(d.type == "picture")
+								else if(d.type == "image")
 								{
 									var imgFile ="le/"+fileName+fileExtension;
 									$.get(imgFile).
@@ -201,13 +206,14 @@
 									    	 $("#mainDiv").append("<br>");
 									    }).
 									    fail(function() {
-									        var imgDownload = "http://"+$rootScope.ip+":8080/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
-									    	$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+imgDownload+" border='0'>");	
-									    	$("#mainDiv").append("<br>");
-									    	//window.location.href = imgDownload;
+									        var imgDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+									    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+imgDownload+" border='0'>");	
+									    	//$("#mainDiv").append("<br>");
+									    	//alert('dl img');
+									    	window.location.href = imgDownload;
 									    });	
 								}
-								else if(d.type == "audio")
+								else if(d.type == "audio" || d.type == "music")
 								{
 									var audFile ="le/"+fileName+fileExtension;
 									$.get(audFile).
@@ -216,10 +222,11 @@
 									    	$("#mainDiv").append("<br>");
 									    }).
 									    fail(function() {
-									        var audDownload = "http://"+$rootScope.ip+":8080/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
-									    	$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+audDownload+" border='0'>");	
-									    	$("#mainDiv").append("<br>");
-									    	//window.location.href = audDownload;
+									        var audDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+									    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+audDownload+" border='0'>");	
+									    	//$("#mainDiv").append("<br>");
+									    	//alert('dl aud');
+									    	window.location.href = audDownload;
 									    });	
 									
 								}
@@ -232,10 +239,11 @@
 									    	$("#mainDiv").append("<br>");
 									    }).
 									    fail(function() {
-									        var vidDownload = "http://"+$rootScope.ip+":8080/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
-									    	$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+vidDownload+" border='0'>");	
-									    	$("#mainDiv").append("<br>");
-									    	//window.location.href = vidDownload;
+									        var vidDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileNamed;
+									    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+vidDownload+" border='0'>");	
+									    	//$("#mainDiv").append("<br>");
+									    	//alert('dl vid');
+									    	window.location.href = vidDownload;
 									    });
 									
 								}
@@ -245,8 +253,8 @@
 						});
 					});
 					//alert($scope.arr.length);
-					$scope.pageLength = arr.length;
-					$scope.$apply();
+					$scope.pageLength = $scope.arr.length;
+					//$scope.$apply();
 					/*$.each(page, function(a,le)
 					{
 						fileName = le.id;
@@ -276,7 +284,7 @@
 				}
 				$scope.goToStore = function() {
 
-					var win = window.open("http://"+$rootScope.ip+":8080/InformatronYX/store/home", '_blank');
+					var win = window.open("http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/store/home", '_blank');
 						if(win){
 						    //Browser has allowed it to be opened
 						    win.focus();
@@ -289,11 +297,12 @@
 	        	$scope.goToLORI = function(id,learningObjectId,subject,loris,reviewId) {
 	        		var info = JSON.stringify({
 								ip: $rootScope.ip,
-								id:id, 
+								//id:id, 
 								learningObjectId: learningObjectId, 
 								subject: subject,
 								loris: loris,
-								reviewId: reviewId
+								reviewId: reviewId,
+								port:$rootScope.port
 							});
 									localStorage["information"] = info;
 						var win = window.open("/lori/lori.html", '_blank');
@@ -308,12 +317,13 @@
 				$scope.goToQuiz = function(id,loid,loname,losubject,userName,userid) {
 							var info = JSON.stringify({
 								ip: $rootScope.ip,
-								id:id, 
+								//id:id, 
 								lo_id: loid, 
 								lo_name: loname,
 								lo_subject:losubject,
 								username:userName,
-								user_id:userid
+								user_id:userid,
+								port: $rootScope.port
 							});
 									localStorage["information"] = info;
 									var win = window.open("/quiz/index.html", '_blank');
@@ -327,7 +337,7 @@
 
 						}
 				$scope.goToDownload = function(test) {
-					window.location.href = "http://"+$rootScope.ip+":8080/InformatronYX/informatron/connect/download/test/"+test+".png";
+					window.location.href = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/test/"+test+".png";
 				}
 
 				$scope.getPlaylist = function(){
