@@ -1,7 +1,11 @@
+                   <div>
+  <input type="radio" ng-model="status" name="status" value="Online" ng-checked="true">  Login Online
+  <input type="radio" ng-model="status" name="status" value="Offline" > Login Offline
+                    </div>
 <div class="panel-body loginform cf col-md-offset-3 vcenter ">
-
+                    <div ng-show ="status=='Online'">
                         <div class="form-group">
-                            <!-- <label for="usermail" class="col-sm-3 control-label">Username</label> -->
+                            <!-- <label for="usermail" class="col-sm-3 control-label">Username</label> -->                        
                             <div class="col-lg-8">
                                 <input type="text" name="username" class="form-control" ng-model="username" placeholder="username" required>
                             </div>
@@ -11,12 +15,20 @@
                                 <input type="password" class="form-control" ng-model="password" placeholder="password" required>
                             </div>
                         </div>
-                        <div class="form-group last">
-                            <!--  <div class="col-sm-offset-3 col-lg-9">-->
-                            <!--myData.doClick(item, $event)-->
+                    </div>
+
+                     <div ng-show ="status=='Offline'">
+                        <div class="form-group">                    
                             <div class="col-lg-8">
-                                <button type="submit" class="btn btn-success btn-sm" style="width:80%;" ng-click = "myData.doClick(item, $event)">Login</button>    <!--myData.doClick(item, $event)-->              
+                                <input type="text" name="userid" class="form-control" ng-model="userid" placeholder="userid" required>
                             </div>
+                        </div>
+                    </div>
+                        <div class="form-group last">
+                            <div class="col-lg-8">
+                                <button type="submit" class="btn btn-success btn-sm" style="width:80%;" ng-click = "myData.doClick(item, $event)">Login</button>                
+                            </div>
+
                         </div>
 
 </div>

@@ -21,7 +21,7 @@
  			controllers.LoginController = function($scope,$http,$rootScope) {
         
 		        $scope.myData = {};
-					
+		        $scope.status = "Online";
 				$scope.test = function(filename, text) {
 					var element = document.createElement('a');
 					  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -70,7 +70,7 @@
 									if (typeof(Storage) !== "undefined") {
 		 							// Store
 		 							localStorage.clear();
-		    						//localStorage.setItem("jsonLogin", JSON.stringify(data));
+		 							localStorage["LoginStatus"] = $scope.status;
 		    						localStorage["jsonLogin"] = JSON.stringify(data);
 		    							window.location.href = "#/main";
 		    							$scope.test(data.id+'.json',JSON.stringify(data));
