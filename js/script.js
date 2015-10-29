@@ -22,7 +22,7 @@
         
 		        $scope.myData = {};
 		        $scope.status = "Online";
-				$scope.test = function(filename, text) {
+				$scope.downloadJSON = function(filename, text) {
 					var element = document.createElement('a');
 					  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
 					  element.setAttribute('download', filename);
@@ -39,59 +39,122 @@
 							// for information
 									$rootScope.ip = "192.168.254.104";
 		           					$rootScope.port = "8080";
-		           				/*	var data =  {
-		           						username : $scope.username,
-		           						password : $scope.password
-		           					};		
-											var prom = $http.post("http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/user/login",JSON.stringify(data));
-											prom.success(function(response){
-												if(response.token != null) {
-													if (typeof(Storage) !== "undefined") {
-			 											// Store
-			    										localStorage.setItem("jsonLogin", JSON.stringify(response));
-			    										window.location.href = "#/main";
-			    										console.log(JSON.stringify(response));
-													} 
-													else {
-			  											alert("not supported");
+		           					/*if($scope.status == 'Online'){	
+				           					var data =  {
+				           						username : $scope.username,
+				           						password : $scope.password
+				           					};		
+													var prom = $http.post("http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/user/login",JSON.stringify(data));
+													prom.success(function(response){
+														if(response.token != null) {
+															if (typeof(Storage) !== "undefined") {
+					 											// Store
+					    										localStorage.setItem("jsonLogin", JSON.stringify(response));
+					    										window.location.href = "#/main";
+					    										console.log(JSON.stringify(response));
+															} 
+															else {
+					  											alert("not supported");
+															}
 													}
-											}
-											else {
-													alert("Invalid username or password.");
-											}
-											});
-											prom.error(function (response){
-												alert(response);
-											});*/
-											
-											var responsePromise = $http.get("json-test-data.json");
-		        		responsePromise.success(function(data, status, headers, config) {
-		         				if(data.token !=null) {
-									if (typeof(Storage) !== "undefined") {
-		 							// Store
-		 							localStorage.clear();
-		 							localStorage["LoginStatus"] = $scope.status;
-		    						localStorage["jsonLogin"] = JSON.stringify(data);
-		    							window.location.href = "#/main";
-		    							$scope.test(data.id+'.json',JSON.stringify(data));
-									} 
-									else {
-		  								alert("not supported");
+													else {
+															alert("Invalid username or password.");
+													}
+													});
+													prom.error(function (response){
+														alert(response);
+													});
 									}
-								}
-								else {
-									alert("Invalid username or password.");
-								}
-		            	});
-		                responsePromise.error(function(data, status, headers, config) {
-		                    alert("AJAX failed!");
-		                });
-						
+									else {
+											var loc = "le/"+$scope.userid+".json";
+											var responsePromise = $http.get(loc);
+											responsePromise.success(function(data, status, headers, config) {
+							         				if(data.token !=null) {
+														if (typeof(Storage) !== "undefined") {
+							 							// Store
+							 							localStorage.clear();
+							 							localStorage["LoginStatus"] = $scope.status;
+							    						localStorage["jsonLogin"] = JSON.stringify(data);
+							    								if($scope.status=='Online'){	    												
+								    								$scope.downloadJSON(data.id+'.json',JSON.stringify(data));
+								    							}
+								    							window.location.href = "#/main";
+													} 
+														else {
+							  								alert("not supported");
+														}
+													}
+													else {
+														alert("Invalid username or password.");
+													}
+							            	});
+							                responsePromise.error(function(data, status, headers, config) {
+							                    alert("ID not found!");
+							                });          
+									}*/
+									//end for informatron 
+
+									//start local test
+						if($scope.status == 'Online'){				
+							var responsePromise = $http.get("json-test-data.json");
+			        		responsePromise.success(function(data, status, headers, config) {
+			         				if(data.token !=null) {
+										if (typeof(Storage) !== "undefined") {
+			 							// Store
+			 							localStorage.clear();
+			 							localStorage["LoginStatus"] = $scope.status;
+			    						localStorage["jsonLogin"] = JSON.stringify(data);
+			    								if($scope.status=='Online'){	    												
+				    								$scope.downloadJSON(data.id+'.json',JSON.stringify(data));
+				    							}
+				    							window.location.href = "#/main";
+									} 
+										else {
+			  								alert("not supported");
+										}
+									}
+									else {
+										alert("Invalid username or password.");
+									}
+			            	});
+			                responsePromise.error(function(data, status, headers, config) {
+			                    alert("AJAX failed!");
+			                });
+						}
+						else {
+							var loc = "le/"+$scope.userid+".json";
+							var responsePromise = $http.get(loc);
+							responsePromise.success(function(data, status, headers, config) {
+			         				if(data.token !=null) {
+										if (typeof(Storage) !== "undefined") {
+			 							// Store
+			 							localStorage.clear();
+			 							localStorage["LoginStatus"] = $scope.status;
+			    						localStorage["jsonLogin"] = JSON.stringify(data);
+			    								if($scope.status=='Online'){	    												
+				    								$scope.downloadJSON(data.id+'.json',JSON.stringify(data));
+				    							}
+				    							window.location.href = "#/main";
+									} 
+										else {
+			  								alert("not supported");
+										}
+									}
+									else {
+										alert("Invalid username or password.");
+									}
+			            	});
+			                responsePromise.error(function(data, status, headers, config) {
+			                    alert("ID not found!");
+			                });      
+						}
+						//end local test
 	        	}
         	}
 
         	controllers.TaskbarController = function($scope,$http,$rootScope){
         		$scope.data = JSON.parse(localStorage.getItem("jsonLogin"));
+        		$scope.status = localStorage.getItem("LoginStatus");
         		$scope.name = $scope.data.username;
         		$scope.playlist;
         		$scope.flag;
@@ -293,29 +356,8 @@
 					alert($scope.pageLength);
 				}
 				$scope.goToStore = function() {
-
-					var win = window.open("http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/store/home", '_blank');
-						if(win){
-						    //Browser has allowed it to be opened
-						    win.focus();
-						}else{
-						    //Broswer has blocked it
-						    alert('Please allow popups for this site');
-						}
-				}
-        	
-	        	$scope.goToLORI = function(id,learningObjectId,subject,loris,reviewId) {
-	        		var info = JSON.stringify({
-								ip: $rootScope.ip,
-								//id:id, 
-								learningObjectId: learningObjectId, 
-								subject: subject,
-								loris: loris,
-								reviewId: reviewId,
-								port:$rootScope.port
-							});
-									localStorage["information"] = info;
-						var win = window.open("/lori/lori.html", '_blank');
+					if($scope.status == 'Online'){	
+						var win = window.open("http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/store/home", '_blank');
 							if(win){
 							    //Browser has allowed it to be opened
 							    win.focus();
@@ -323,8 +365,39 @@
 							    //Broswer has blocked it
 							    alert('Please allow popups for this site');
 							}
+						}
+					else {
+						alert('Please login online');
+					}
+				}
+        	
+	        	$scope.goToLORI = function(id,learningObjectId,subject,loris,reviewId) {
+	        		if($scope.status == 'Online'){
+		        		var info = JSON.stringify({
+									ip: $rootScope.ip,
+									//id:id, 
+									learningObjectId: learningObjectId, 
+									subject: subject,
+									loris: loris,
+									reviewId: reviewId,
+									port:$rootScope.port
+								});
+										localStorage["information"] = info;
+							var win = window.open("/lori/lori.html", '_blank');
+								if(win){
+								    //Browser has allowed it to be opened
+								    win.focus();
+								}else{
+								    //Broswer has blocked it
+								    alert('Please allow popups for this site');
+								}
+					}
+					else {
+						alert('Please login online');
+					}
 				}
 				$scope.goToQuiz = function(id,loid,loname,losubject,userName,userid) {
+					if($scope.status == 'Online'){
 							var info = JSON.stringify({
 								ip: $rootScope.ip,
 								//id:id, 
@@ -344,6 +417,10 @@
 							    //Broswer has blocked it
 							    alert('Please allow popups for this site');
 							}
+					}
+					else {
+						alert('Please login online');
+					}
 
 						}
 				$scope.goToDownload = function(test) {
