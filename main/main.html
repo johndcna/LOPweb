@@ -7,7 +7,6 @@
         <link href="../css/style.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css">
 
-
     <div class="container-fluid player">
         <div class="row row-player">
         <!-- LO Playlist -->
@@ -21,9 +20,10 @@
                         <h4 style="color:white" ng-click="showLO()">Learning Objects</h4>
                             <div class="los" ng-if="flag">
                                 <li style="color:white; list-style-type:none;" ng-repeat= "x in data.liableLearningObjects"> 
-                                    <div ng-click="displayLO(data.liableLearningObjects, x.id,0)" ng-init="pagingFlag = false">                        
-                                            {{x.title}}
+                                    <div ng-click="displayLO(data.liableLearningObjects, x.id,0)" ng-init="pagingFlag = false">                                              
+                                            Play {{x.title}} 
                                     </div>
+                                    <div style="color:orange" ng-click="downloadLO(data.liableLearningObjects, x.id)" ng-init="pagingFlag = false">Download {{x.title}}</div>
                                 </li>
                             </div>
                             <!--<h4 style="color:white;" ng-click="goToStore()">Open LO Store </h4> -->
@@ -66,6 +66,7 @@
             
         </div>
     </div>
+
 
 
 

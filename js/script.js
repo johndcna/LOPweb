@@ -169,6 +169,22 @@
 				$scope.currentPlaylist = [];
 				$scope.playlistLOs = [];
 
+				angular.element(document).ready(function () {//just like ready function
+			      /* $scope.jsonLogin = JSON.parse(localStorage.getItem("jsonLogin"));		
+						
+						for(var i=0;i<$scope.jsonLogin.liableLearningObjects.length;i++){
+								  var a = $scope.jsonLogin.liableLearningObjects[i]
+								 alert(a.title);
+								 for(var k=0;k<a.sequence.length;k++){
+								 		 var b = a.sequence[i];
+								 		 		for(var k=0;k<a.sequence.length;k++){
+								 		 var b = a.sequence[i];
+								 		 			  
+								 }	  
+								 }
+						}*/
+			    });
+
 				$.getJSON('playlist.json', function(data) {
   					//console.log(data);
   					$scope.playlist = data;
@@ -193,11 +209,12 @@
 					alert('nisulod ' + $scope.pagingFlag);
 				}
 
+				
 				$scope.displayLO = function(liableLearningObjects, LOid, page){
-					//alert(""+LOid);// ng-include="main.html"
 					var sequence;
 					var fileName;
 					var fileExtension;
+					var loName;
 					$scope.arr = [];
 					$scope.currentSequence = liableLearningObjects;
 					$scope.currentId = LOid;
@@ -216,6 +233,7 @@
 					$.each($scope.currentSequence, function(a,b){
 						if($scope.currentId == b.id){
 							sequence = b.sequence;
+							loName = b.title;
 							$("#mainDiv").append("<h1>"+b.title+"</h1>");
 							$("#mainDiv").append("<h3>"+b.description+"</h3>");
 							$("#mainDiv").append("<br><br><br>");
@@ -252,10 +270,10 @@
 									{
 										$("#mainDiv").append("<video width='320' height='240' controls><source src='le/"+fileName+fileExtension+"' type='video/mp4'>Your browser does not support the video tag.</video>");
 									}*/
-									
 									if(d.type == "text")
 									{
-										var txtFile ="le/"+fileName+fileExtension;
+										//var txtFile ="le/"+fileName+fileExtension;
+										var txtFile ="lo/"+loName+"/"+fileName+fileExtension;
 										$.get(txtFile).
 										    done(function(data) {
 										         $("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+txtFile+" border='0'>");	
@@ -270,7 +288,8 @@
 									}
 									else if(d.type == "image")
 									{
-										var imgFile ="le/"+fileName+fileExtension;
+										//var imgFile ="le/"+fileName+fileExtension;
+										var imgFile ="lo/"+loName+"/"+fileName+fileExtension;
 										$.get(imgFile).
 										    done(function(data) {
 										         $("#mainDiv").append("<img src="+imgFile+" alt='Mountain View'>");
@@ -285,7 +304,8 @@
 									}
 									else if(d.type == "audio" || d.type == "music")
 									{
-										var audFile ="le/"+fileName+fileExtension;
+										//var audFile ="le/"+fileName+fileExtension;
+										var audFile ="lo/"+loName+"/"+fileName+fileExtension;
 										$.get(audFile).
 										    done(function(data) {
 												$("#mainDiv").append("<audio controls><source src="+audFile+" type='audio/mpeg'>Your browser does not support the audio element.</audio>");        
@@ -301,7 +321,8 @@
 									}
 									else if(d.type == "video")
 									{
-										var vidFile ="le/"+fileName+fileExtension;
+										//var vidFile ="le/"+fileName+fileExtension;
+										var vidFile ="lo/"+loName+"/"+fileName+fileExtension;
 										$.get(vidFile).
 										    done(function(data) {
 												$("#mainDiv").append("<video width='320' height='240' controls><source src="+vidFile+" type='video/mp4'>Your browser does not support the video tag.</video>");        
@@ -319,7 +340,8 @@
 								else {
 									if(d.type == "text")
 									{
-										var txtFile ="le/"+fileName+fileExtension;
+										//var txtFile ="le/"+fileName+fileExtension;
+										var txtFile ="lo/"+loName+"/"+fileName+fileExtension;
 										var temp = ""+fileName+fileExtension;
 										$.get(txtFile).
 										    done(function(data) {
@@ -332,7 +354,8 @@
 									}
 									else if(d.type == "image")
 									{
-										var imgFile ="le/"+fileName+fileExtension;
+										//var imgFile ="le/"+fileName+fileExtension;
+										var imgFile ="lo/"+loName+"/"+fileName+fileExtension;
 										var temp = ""+fileName+fileExtension;
 										$.get(imgFile).
 										    done(function(data) {
@@ -345,7 +368,8 @@
 									}
 									else if(d.type == "audio" || d.type == "music")
 									{
-										var audFile ="le/"+fileName+fileExtension;
+										//var audFile ="le/"+fileName+fileExtension;
+										var audFile ="lo/"+loName+"/"+fileName+fileExtension;
 										var temp = ""+fileName+fileExtension;
 										$.get(audFile).
 										    done(function(data) {
@@ -359,7 +383,8 @@
 									}
 									else if(d.type == "video")
 									{
-										var vidFile ="le/"+fileName+fileExtension;
+										//var vidFile ="le/"+fileName+fileExtension;
+										var vidFile ="lo/"+loName+"/"+fileName+fileExtension;
 										var temp = ""+fileName+fileExtension;
 										$.get(vidFile).
 										    done(function(data) {
@@ -402,6 +427,24 @@
 						}
 						$("#mainDiv").append("<br>");
 					});*/
+				}
+				$scope.downloadLO = function(liableLearningObjects, LOid,page) {
+					if($scope.status == 'Online'){
+						var arr = liableLearningObjects[LOid];
+						alert('You are about to download '+arr.title);
+						alert('Please create the folder '+arr.title+' inside /lo folder to save the learning elements.');
+						for(var i=0;i<arr.sequence.length;i++){
+								var arrSeq = arr.sequence[i];
+								for(var k =0;k<arrSeq.length;k++){
+										//alert(arrSeq[k].id+arrSeq[k].fileExtension);
+										var req = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+arrSeq[k].id;
+											    	window.location.href = req;
+								}
+						}
+					}
+					else {
+						alert('Please connect online to download '+liableLearningObjects[LOid].title);
+					}
 				}
 
 				$scope.hey = function(){

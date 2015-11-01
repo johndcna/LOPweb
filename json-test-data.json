@@ -11,7 +11,7 @@
     "liableLearningObjects": [
         {
             "id": 0,
-            "title": "LO 1",
+            "title": "LO1",
             "subject": null,
             "description": null,
             "downloads": 555,
@@ -110,7 +110,7 @@
         },
         {
             "id": 1,
-            "title": "LO 2",
+            "title": "LO2",
             "subject": null,
             "description": null,
             "downloads": 33,
@@ -175,7 +175,7 @@
         },
         {
             "id": 2,
-            "title": "LO 3",
+            "title": "LO3",
             "subject": null,
             "description": null,
             "downloads": 1,
@@ -268,7 +268,7 @@
         },
         {
             "id": 3,
-            "title": "LO 4",
+            "title": "LO4",
             "subject": null,
             "description": null,
             "downloads": 1,
@@ -309,7 +309,7 @@
         },
         {
             "id": 4,
-            "title": "LO 5",
+            "title": "LO5",
             "subject": null,
             "description": null,
             "downloads": 1,
