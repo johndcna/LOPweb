@@ -162,8 +162,6 @@
         		$scope.playlistFlag = false;
         		$scope.selectedPlaylistFlag = false;
         		$scope.showPlaylistFlag;
-        		$rootScope.ip = "192.168.254.104";
-		        $rootScope.port = "8080";
 		        $scope.pageLength;
 				$scope.arr = [];
 				$scope.currentSequence;
@@ -237,90 +235,144 @@
 							if(page == a){
 								fileName = d.id;
 								fileExtension = d.fileExtension;
-								if(d.type == "text")
-								{
-									$("#mainDiv").append("<object width='500' height='300' type='text/plain' data='le/"+fileName+fileExtension+"' border='0'>");
-								}
-								else if(d.type == "image")
-								{
-									$("#mainDiv").append("<img src='le/"+fileName+fileExtension+"' alt='Mountain View'>");
-								}
-								else if(d.type == "audio")
-								{
-									$("#mainDiv").append("<audio controls><source src='le/"+fileName+fileExtension+"' type='audio/mpeg'>Your browser does not support the audio element.</audio>");
-								}
-								else if(d.type == "video")
-								{
-									$("#mainDiv").append("<video width='320' height='240' controls><source src='le/"+fileName+fileExtension+"' type='video/mp4'>Your browser does not support the video tag.</video>");
-								}
-								/*
-								if(d.type == "text")
-								{
-									var txtFile ="le/"+fileName+fileExtension;
-									$.get(txtFile).
-									    done(function(data) {
-									         $("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+txtFile+" border='0'>");	
-									    	 $("#mainDiv").append("<br>");
-									    }).
-									    fail(function() {
-									        var textDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
-									    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+textDownload+" border='0'>");	
-									    	//$("#mainDiv").append("<br>");
-									    	//alert('dl text');
-									    	window.location.href = textDownload;
-									    });				
-								}
-								else if(d.type == "image")
-								{
-									var imgFile ="le/"+fileName+fileExtension;
-									$.get(imgFile).
-									    done(function(data) {
-									         $("#mainDiv").append("<img src="+imgFile+" alt='Mountain View'>");
-									    	 $("#mainDiv").append("<br>");
-									    }).
-									    fail(function() {
-									        var imgDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
-									    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+imgDownload+" border='0'>");	
-									    	//$("#mainDiv").append("<br>");
-									    	//alert('dl img');
-									    	window.location.href = imgDownload;
-									    });	
-								}
-								else if(d.type == "audio" || d.type == "music")
-								{
-									var audFile ="le/"+fileName+fileExtension;
-									$.get(audFile).
-									    done(function(data) {
-											$("#mainDiv").append("<audio controls><source src="+audFile+" type='audio/mpeg'>Your browser does not support the audio element.</audio>");        
-									    	$("#mainDiv").append("<br>");
-									    }).
-									    fail(function() {
-									        var audDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
-									    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+audDownload+" border='0'>");	
-									    	//$("#mainDiv").append("<br>");
-									    	//alert('dl aud');
-									    	window.location.href = audDownload;
-									    });	
+								if($scope.status == 'Online'){	
+									/*if(d.type == "text")
+									{
+										$("#mainDiv").append("<object width='500' height='300' type='text/plain' data='le/"+fileName+fileExtension+"' border='0'>");
+									}
+									else if(d.type == "image")
+									{
+										$("#mainDiv").append("<img src='le/"+fileName+fileExtension+"' alt='Mountain View'>");
+									}
+									else if(d.type == "audio")
+									{
+										$("#mainDiv").append("<audio controls><source src='le/"+fileName+fileExtension+"' type='audio/mpeg'>Your browser does not support the audio element.</audio>");
+									}
+									else if(d.type == "video")
+									{
+										$("#mainDiv").append("<video width='320' height='240' controls><source src='le/"+fileName+fileExtension+"' type='video/mp4'>Your browser does not support the video tag.</video>");
+									}*/
 									
+									if(d.type == "text")
+									{
+										var txtFile ="le/"+fileName+fileExtension;
+										$.get(txtFile).
+										    done(function(data) {
+										         $("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+txtFile+" border='0'>");	
+										    	 $("#mainDiv").append("<br>");
+										    }).
+										    fail(function() {
+										        var textDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+										    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+textDownload+" border='0'>");	
+										    	//$("#mainDiv").append("<br>");
+										    	window.location.href = textDownload;
+										    });				
+									}
+									else if(d.type == "image")
+									{
+										var imgFile ="le/"+fileName+fileExtension;
+										$.get(imgFile).
+										    done(function(data) {
+										         $("#mainDiv").append("<img src="+imgFile+" alt='Mountain View'>");
+										    	 $("#mainDiv").append("<br>");
+										    }).
+										    fail(function() {
+										        var imgDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+										    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+imgDownload+" border='0'>");	
+										    	//$("#mainDiv").append("<br>");
+										    	window.location.href = imgDownload;
+										    });	
+									}
+									else if(d.type == "audio" || d.type == "music")
+									{
+										var audFile ="le/"+fileName+fileExtension;
+										$.get(audFile).
+										    done(function(data) {
+												$("#mainDiv").append("<audio controls><source src="+audFile+" type='audio/mpeg'>Your browser does not support the audio element.</audio>");        
+										    	$("#mainDiv").append("<br>");
+										    }).
+										    fail(function() {
+										        var audDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+										    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+audDownload+" border='0'>");	
+										    	//$("#mainDiv").append("<br>");
+										    	window.location.href = audDownload;
+										    });	
+										
+									}
+									else if(d.type == "video")
+									{
+										var vidFile ="le/"+fileName+fileExtension;
+										$.get(vidFile).
+										    done(function(data) {
+												$("#mainDiv").append("<video width='320' height='240' controls><source src="+vidFile+" type='video/mp4'>Your browser does not support the video tag.</video>");        
+										    	$("#mainDiv").append("<br>");
+										    }).
+										    fail(function() {
+										        var vidDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileNamed;
+										    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+vidDownload+" border='0'>");	
+										    	//$("#mainDiv").append("<br>");
+										    	window.location.href = vidDownload;
+										    });
+										
+									}
 								}
-								else if(d.type == "video")
-								{
-									var vidFile ="le/"+fileName+fileExtension;
-									$.get(vidFile).
-									    done(function(data) {
-											$("#mainDiv").append("<video width='320' height='240' controls><source src="+vidFile+" type='video/mp4'>Your browser does not support the video tag.</video>");        
-									    	$("#mainDiv").append("<br>");
-									    }).
-									    fail(function() {
-									        var vidDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileNamed;
-									    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+vidDownload+" border='0'>");	
-									    	//$("#mainDiv").append("<br>");
-									    	//alert('dl vid');
-									    	window.location.href = vidDownload;
-									    });
-									
+								else {
+									if(d.type == "text")
+									{
+										var txtFile ="le/"+fileName+fileExtension;
+										var temp = ""+fileName+fileExtension;
+										$.get(txtFile).
+										    done(function(data) {
+										         $("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+txtFile+" border='0'>");	
+										    	 $("#mainDiv").append("<br>");
+										    }).
+										    fail(function() {
+										        $("#mainDiv").append("<br>"+txtFile+" must be downloaded.<br>");
+										    });				
+									}
+									else if(d.type == "image")
+									{
+										var imgFile ="le/"+fileName+fileExtension;
+										var temp = ""+fileName+fileExtension;
+										$.get(imgFile).
+										    done(function(data) {
+										         $("#mainDiv").append("<img src="+imgFile+" alt='Mountain View'>");
+										    	 $("#mainDiv").append("<br>");
+										    }).
+										    fail(function() {
+										       $("#mainDiv").append("<br>"+temp+" must be downloaded.<br>");
+										    });	
+									}
+									else if(d.type == "audio" || d.type == "music")
+									{
+										var audFile ="le/"+fileName+fileExtension;
+										var temp = ""+fileName+fileExtension;
+										$.get(audFile).
+										    done(function(data) {
+												$("#mainDiv").append("<audio controls><source src="+audFile+" type='audio/mpeg'>Your browser does not support the audio element.</audio>");        
+										    	$("#mainDiv").append("<br>");
+										    }).
+										    fail(function() {
+										        $("#mainDiv").append("<br>"+temp +" must be downloaded.<br>");
+										    });	
+										
+									}
+									else if(d.type == "video")
+									{
+										var vidFile ="le/"+fileName+fileExtension;
+										var temp = ""+fileName+fileExtension;
+										$.get(vidFile).
+										    done(function(data) {
+												$("#mainDiv").append("<video width='320' height='240' controls><source src="+vidFile+" type='video/mp4'>Your browser does not support the video tag.</video>");        
+										    	$("#mainDiv").append("<br>");
+										    }).
+										    fail(function() {
+										        $("#mainDiv").append("<br>"+temp +" must be downloaded.<br>");
+										    });
+										
+									}
 								}
-								*/
+								
 								$("#mainDiv").append("<br><br><br><br>");
 							}
 						});
