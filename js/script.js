@@ -37,28 +37,32 @@
 
 				$scope.myData.doClick = function(item, event) {
 							// for information
-									$rootScope.ip = "192.168.254.104";
-		           					$rootScope.port = "8080";
-		           					/*if($scope.status == 'Online'){	
+									$rootScope.ip = "172.31.11.32";
+		           					$rootScope.port = "24119";
+		           					if($scope.status == 'Online'){	
 				           					var data =  {
 				           						username : $scope.username,
 				           						password : $scope.password
 				           					};		
 													var prom = $http.post("http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/user/login",JSON.stringify(data));
 													prom.success(function(response){
-														if(response.token != null) {
-															if (typeof(Storage) !== "undefined") {
-					 											// Store
-					    										localStorage.setItem("jsonLogin", JSON.stringify(response));
-					    										window.location.href = "#/main";
-					    										console.log(JSON.stringify(response));
-															} 
-															else {
-					  											alert("not supported");
-															}
+														if(response.token !=null) {
+														if (typeof(Storage) !== "undefined") {
+							 							// Store
+							 							localStorage.clear();
+							 							localStorage["LoginStatus"] = $scope.status;
+							    						localStorage["jsonLogin"] = JSON.stringify(response);
+							    								if($scope.status=='Online'){	    												
+								    								$scope.downloadJSON(response.id+'.json',JSON.stringify(response));
+								    							}
+								    							window.location.href = "#/main";
+													} 
+														else {
+							  								alert("not supported");
+														}
 													}
 													else {
-															alert("Invalid username or password.");
+														alert("Invalid username or password.");
 													}
 													});
 													prom.error(function (response){
@@ -66,7 +70,7 @@
 													});
 									}
 									else {
-											var loc = "le/"+$scope.userid+".json";
+											var loc = "userid/"+$scope.userid+".json";
 											var responsePromise = $http.get(loc);
 											responsePromise.success(function(data, status, headers, config) {
 							         				if(data.token !=null) {
@@ -91,11 +95,11 @@
 							                responsePromise.error(function(data, status, headers, config) {
 							                    alert("ID not found!");
 							                });          
-									}*/
+									}
 									//end for informatron 
 
 									//start local test
-						if($scope.status == 'Online'){				
+						/*if($scope.status == 'Online'){				
 							var responsePromise = $http.get("json-test-data.json");
 			        		responsePromise.success(function(data, status, headers, config) {
 			         				if(data.token !=null) {
@@ -147,12 +151,14 @@
 			                responsePromise.error(function(data, status, headers, config) {
 			                    alert("ID not found!");
 			                });      
-						}
+						}*/
 						//end local test
 	        	}
         	}
 
         	controllers.TaskbarController = function($scope,$http,$rootScope){
+        		$rootScope.ip = "172.31.11.32";
+		        $rootScope.port = "24119";
         		$scope.data = JSON.parse(localStorage.getItem("jsonLogin"));
         		$scope.status = localStorage.getItem("LoginStatus");
         		$scope.name = $scope.data.username;
@@ -280,10 +286,9 @@
 										    	 $("#mainDiv").append("<br>");
 										    }).
 										    fail(function() {
-										        var textDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
-										    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+textDownload+" border='0'>");	
-										    	//$("#mainDiv").append("<br>");
-										    	window.location.href = textDownload;
+										        //var textDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+										    	//window.location.href = textDownload;
+										    	$("#mainDiv").append("<br>"+txtFile+" must be downloaded.<br>");
 										    });				
 									}
 									else if(d.type == "image")
@@ -296,10 +301,9 @@
 										    	 $("#mainDiv").append("<br>");
 										    }).
 										    fail(function() {
-										        var imgDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
-										    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+imgDownload+" border='0'>");	
-										    	//$("#mainDiv").append("<br>");
-										    	window.location.href = imgDownload;
+										        //var imgDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+										    	//window.location.href = imgDownload;
+										    	$("#mainDiv").append("<br>"+imgFile+" must be downloaded.<br>");
 										    });	
 									}
 									else if(d.type == "audio" || d.type == "music")
@@ -312,10 +316,9 @@
 										    	$("#mainDiv").append("<br>");
 										    }).
 										    fail(function() {
-										        var audDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
-										    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+audDownload+" border='0'>");	
-										    	//$("#mainDiv").append("<br>");
-										    	window.location.href = audDownload;
+										        //var audDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
+										    	//window.location.href = audDownload;
+										    	$("#mainDiv").append("<br>"+audFile+" must be downloaded.<br>");
 										    });	
 										
 									}
@@ -329,10 +332,9 @@
 										    	$("#mainDiv").append("<br>");
 										    }).
 										    fail(function() {
-										        var vidDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileNamed;
-										    	//$("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+vidDownload+" border='0'>");	
-										    	//$("#mainDiv").append("<br>");
-										    	window.location.href = vidDownload;
+										        //var vidDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileNamed;
+										       	//window.location.href = vidDownload;
+										       	$("#mainDiv").append("<br>"+vidFile+" must be downloaded.<br>");
 										    });
 										
 									}
@@ -428,9 +430,12 @@
 						$("#mainDiv").append("<br>");
 					});*/
 				}
-				$scope.downloadLO = function(liableLearningObjects, LOid,page) {
+				$scope.downloadLO = function(liableLearningObjects, LOid) {
 					if($scope.status == 'Online'){
 						var arr = liableLearningObjects[LOid];
+						var a = liableLearningObjects;
+						var b = LOid;
+						console.log(""+a+" "+arr);
 						alert('You are about to download '+arr.title);
 						alert('Please create the folder '+arr.title+' inside /lo folder to save the learning elements.');
 						for(var i=0;i<arr.sequence.length;i++){
