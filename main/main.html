@@ -23,7 +23,7 @@
                                     <div ng-click="displayLO(data.liableLearningObjects, x.id,0)" ng-init="pagingFlag = false">                                              
                                             Play {{x.title}} 
                                     </div>
-                                    <div style="color:orange" ng-click="downloadLO(data.liableLearningObjects, $index)" ng-init="pagingFlag = false">Download {{x.title}}</div>
+                                    <div style="color:orange" ng-click="downloadLO(data.liableLearningObjects, $index,x.id)" ng-init="pagingFlag = false">Download {{x.title}}</div>
                                 </li>
                             </div>
                             <!--<h4 style="color:white;" ng-click="goToStore()">Open LO Store </h4> -->

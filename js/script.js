@@ -174,7 +174,8 @@
 				$scope.currentId;
 				$scope.currentPlaylist = [];
 				$scope.playlistLOs = [];
-
+				$rootScope.quizUSERID;
+				$rootScope.quizLOID;
 				angular.element(document).ready(function () {//just like ready function
 			      /* $scope.jsonLogin = JSON.parse(localStorage.getItem("jsonLogin"));		
 						
@@ -278,8 +279,8 @@
 									}*/
 									if(d.type == "text")
 									{
-										//var txtFile ="le/"+fileName+fileExtension;
-										var txtFile ="lo/"+loName+"/"+fileName+fileExtension;
+										//var txtFile ="lo/"+loName+"/"+fileName+fileExtension;
+										var txtFile ="lo/"+loName+"/"+fileName;
 										$.get(txtFile).
 										    done(function(data) {
 										         $("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+txtFile+" border='0'>");	
@@ -293,8 +294,8 @@
 									}
 									else if(d.type == "image")
 									{
-										//var imgFile ="le/"+fileName+fileExtension;
-										var imgFile ="lo/"+loName+"/"+fileName+fileExtension;
+										//var imgFile ="lo/"+loName+"/"+fileName+fileExtension;
+										var imgFile ="lo/"+loName+"/"+fileName;
 										$.get(imgFile).
 										    done(function(data) {
 										         $("#mainDiv").append("<img src="+imgFile+" alt='Mountain View'>");
@@ -308,8 +309,8 @@
 									}
 									else if(d.type == "audio" || d.type == "music")
 									{
-										//var audFile ="le/"+fileName+fileExtension;
-										var audFile ="lo/"+loName+"/"+fileName+fileExtension;
+										//var audFile ="lo/"+loName+"/"+fileName+fileExtension;
+										var audFile ="lo/"+loName+"/"+fileName;	
 										$.get(audFile).
 										    done(function(data) {
 												$("#mainDiv").append("<audio controls><source src="+audFile+" type='audio/mpeg'>Your browser does not support the audio element.</audio>");        
@@ -324,8 +325,8 @@
 									}
 									else if(d.type == "video")
 									{
-										//var vidFile ="le/"+fileName+fileExtension;
-										var vidFile ="lo/"+loName+"/"+fileName+fileExtension;
+										//var vidFile ="lo/"+loName+"/"+fileName+fileExtension;
+										var vidFile ="lo/"+loName+"/"+fileName;
 										$.get(vidFile).
 										    done(function(data) {
 												$("#mainDiv").append("<video width='320' height='240' controls><source src="+vidFile+" type='video/mp4'>Your browser does not support the video tag.</video>");        
@@ -342,26 +343,27 @@
 								else {
 									if(d.type == "text")
 									{
-										//var txtFile ="le/"+fileName+fileExtension;
-										var txtFile ="lo/"+loName+"/"+fileName+fileExtension;
+										//var txtFile ="lo/"+loName+"/"+fileName+fileExtension;
+										var txtFile ="lo/"+loName+"/"+fileName;
 										var temp = ""+fileName+fileExtension;
-										$.get(txtFile).
+										$.get(""+txtFile).
 										    done(function(data) {
+										    	alert(txtFile);
 										         $("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+txtFile+" border='0'>");	
 										    	 $("#mainDiv").append("<br>");
 										    }).
 										    fail(function() {
-										        $("#mainDiv").append("<br>"+txtFile+" must be downloaded.<br>");
+										        $("#mainDiv").append("<br>"+temp+" must be downloaded.<br>");
 										    });				
 									}
 									else if(d.type == "image")
 									{
-										//var imgFile ="le/"+fileName+fileExtension;
-										var imgFile ="lo/"+loName+"/"+fileName+fileExtension;
+										//var imgFile ="lo/"+loName+"/"+fileName+fileExtension;
+										var imgFile ="lo/"+loName+"/"+fileName;
 										var temp = ""+fileName+fileExtension;
 										$.get(imgFile).
 										    done(function(data) {
-										         $("#mainDiv").append("<img src="+imgFile+" alt='Mountain View'>");
+										         $("#mainDiv").append("<img src="+imgFile+">");
 										    	 $("#mainDiv").append("<br>");
 										    }).
 										    fail(function() {
@@ -370,8 +372,8 @@
 									}
 									else if(d.type == "audio" || d.type == "music")
 									{
-										//var audFile ="le/"+fileName+fileExtension;
-										var audFile ="lo/"+loName+"/"+fileName+fileExtension;
+										//var audFile ="lo/"+loName+"/"+fileName+fileExtension;
+										var audFile ="lo/"+loName+"/"+fileName;
 										var temp = ""+fileName+fileExtension;
 										$.get(audFile).
 										    done(function(data) {
@@ -385,8 +387,8 @@
 									}
 									else if(d.type == "video")
 									{
-										//var vidFile ="le/"+fileName+fileExtension;
-										var vidFile ="lo/"+loName+"/"+fileName+fileExtension;
+										//var vidFile ="lo/"+loName+"/"+fileName+fileExtension;
+										var vidFile ="lo/"+loName+"/"+fileName;
 										var temp = ""+fileName+fileExtension;
 										$.get(vidFile).
 										    done(function(data) {
@@ -430,7 +432,18 @@
 						$("#mainDiv").append("<br>");
 					});*/
 				}
-				$scope.downloadLO = function(liableLearningObjects, LOid) {
+				
+				$scope.downloadLO = function(liableLearningObjects, LOid,id) {
+					$scope.arr = [];
+					$scope.currentSequence = liableLearningObjects;
+					$scope.currentId = id;
+					$scope.jsonLogin = JSON.parse(localStorage.getItem("jsonLogin"));
+					$.each($scope.currentSequence, function(a,b){
+						if($scope.currentId == b.id){
+							$scope.quizLOID = b.id;
+							$scope.quizUSERID  = $scope.jsonLogin.id;
+						}
+					});
 					if($scope.status == 'Online'){
 						var arr = liableLearningObjects[LOid];
 						var a = liableLearningObjects;
@@ -443,14 +456,17 @@
 								for(var k =0;k<arrSeq.length;k++){
 										//alert(arrSeq[k].id+arrSeq[k].fileExtension);
 										var req = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+arrSeq[k].id;
-											    	window.location.href = req;
+											    	//window.location.href = req;
+					  					    	window.open(req);
 								}
 						}
 					}
-					else {
+					else {		
 						alert('Please connect online to download '+liableLearningObjects[LOid].title);
 					}
 				}
+
+				 
 
 				$scope.hey = function(){
 					alert($scope.pageLength);
