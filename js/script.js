@@ -348,7 +348,6 @@
 										var temp = ""+fileName+fileExtension;
 										$.get(""+txtFile).
 										    done(function(data) {
-										    	alert(txtFile);
 										         $("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+txtFile+" border='0'>");	
 										    	 $("#mainDiv").append("<br>");
 										    }).
@@ -457,7 +456,15 @@
 										//alert(arrSeq[k].id+arrSeq[k].fileExtension);
 										var req = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+arrSeq[k].id;
 											    	//window.location.href = req;
-					  					    	window.open(req);
+					  					    	var win = window.open(req,'', "width=200, height=100");
+									  		if(win){
+											    //Browser has allowed it to be opened
+											    //win.focus();
+											    win.blur();
+											}else{
+											    //Broswer has blocked it
+											    alert('Please allow popups for this site');
+											}
 								}
 						}
 					}
@@ -513,7 +520,7 @@
 					}
 				}
 				$scope.goToQuiz = function(id,loid,loname,losubject,userName,userid) {
-					if($scope.status == 'Online'){
+				if($scope.status == 'Online'){
 							var info = JSON.stringify({
 								ip: $rootScope.ip,
 								//id:id, 
@@ -529,6 +536,7 @@
 							if(win){
 							    //Browser has allowed it to be opened
 							    win.focus();
+							   // win.blur();
 							}else{
 							    //Broswer has blocked it
 							    alert('Please allow popups for this site');
