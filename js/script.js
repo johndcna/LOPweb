@@ -23,16 +23,21 @@
 		        $scope.myData = {};
 		        $scope.status = "Online";
 				$scope.downloadJSON = function(filename, text) {
-					var element = document.createElement('a');
-					  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-					  element.setAttribute('download', filename);
-
-					  element.style.display = 'none';
-					  document.body.appendChild(element);
-
-					  element.click();
-
-					  document.body.removeChild(element);
+					
+					  var jsonPath = "userid/"+filename+".json";
+					 				 $.get(jsonPath).
+										    done(function(data) {
+												
+										    }).
+										    fail(function() {
+										        var element = document.createElement('a');
+												  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+												  element.setAttribute('download', filename);
+												  element.style.display = 'none';
+												  document.body.appendChild(element);
+												  element.click();
+												  document.body.removeChild(element);
+										    });
 				}
 
 				$scope.myData.doClick = function(item, event) {
@@ -78,10 +83,7 @@
 							 							// Store
 							 							localStorage.clear();
 							 							localStorage["LoginStatus"] = $scope.status;
-							    						localStorage["jsonLogin"] = JSON.stringify(data);
-							    								if($scope.status=='Online'){	    												
-								    								$scope.downloadJSON(data.id+'.json',JSON.stringify(data));
-								    							}
+							    						localStorage["jsonLogin"] = JSON.stringify(data);	
 								    							window.location.href = "#/main";
 													} 
 														else {
@@ -216,6 +218,21 @@
 					alert('nisulod ' + $scope.pagingFlag);
 				}
 
+				$scope.makeOneWord = function (str){
+					var temp = "";
+					var arr = str.split(" ");
+						if(arr.length>1){
+							for(var x = 0;x<arr.length-1;x++) {
+								if(x==arr.length-2) {temp+= arr[x]+ '%20'+arr[x+1];}
+								else{
+									temp+= arr[x]+ '%20';
+								}
+							}
+							return temp;
+						}
+						else {return temp = str;}
+				}
+
 				
 				$scope.displayLO = function(liableLearningObjects, LOid, page){
 					var sequence;
@@ -280,7 +297,9 @@
 									if(d.type == "text")
 									{
 										//var txtFile ="lo/"+loName+"/"+fileName+fileExtension;
-										var txtFile ="lo/"+loName+"/"+fileName;
+										var txtFile ="lo/"+$scope.makeOneWord(loName)+"/"+fileName;
+										var txtFile2 ="lo/"+loName+"/"+fileName;
+										var temp = ""+fileName+fileExtension;
 										$.get(txtFile).
 										    done(function(data) {
 										         $("#mainDiv").append("<object width='500' height='300' type='text/plain' data="+txtFile+" border='0'>");	
@@ -289,13 +308,15 @@
 										    fail(function() {
 										        //var textDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
 										    	//window.location.href = textDownload;
-										    	$("#mainDiv").append("<br>"+txtFile+" must be downloaded.<br>");
+										    	$("#mainDiv").append("<br>"+temp+" must be downloaded.<br>");
 										    });				
 									}
 									else if(d.type == "image")
 									{
 										//var imgFile ="lo/"+loName+"/"+fileName+fileExtension;
-										var imgFile ="lo/"+loName+"/"+fileName;
+										var imgFile ="lo/"+$scope.makeOneWord(loName)+"/"+fileName;
+										var imgFile2 ="lo/"+loName+"/"+fileName;
+										var temp = ""+fileName+fileExtension;
 										$.get(imgFile).
 										    done(function(data) {
 										         $("#mainDiv").append("<img src="+imgFile+" alt='Mountain View'>");
@@ -304,13 +325,14 @@
 										    fail(function() {
 										        //var imgDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
 										    	//window.location.href = imgDownload;
-										    	$("#mainDiv").append("<br>"+imgFile+" must be downloaded.<br>");
+										    	$("#mainDiv").append("<br>"+temp+" must be downloaded.<br>");
 										    });	
 									}
 									else if(d.type == "audio" || d.type == "music")
 									{
 										//var audFile ="lo/"+loName+"/"+fileName+fileExtension;
-										var audFile ="lo/"+loName+"/"+fileName;	
+										var audFile ="lo/"+$scope.makeOneWord(loName)+"/"+fileName;										var audFile2 ="lo/"+loName+"/"+fileName;
+										var temp = ""+fileName+fileExtension;	
 										$.get(audFile).
 										    done(function(data) {
 												$("#mainDiv").append("<audio controls><source src="+audFile+" type='audio/mpeg'>Your browser does not support the audio element.</audio>");        
@@ -319,14 +341,16 @@
 										    fail(function() {
 										        //var audDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileName;
 										    	//window.location.href = audDownload;
-										    	$("#mainDiv").append("<br>"+audFile+" must be downloaded.<br>");
+										    	$("#mainDiv").append("<br>"+temp+" must be downloaded.<br>");
 										    });	
 										
 									}
 									else if(d.type == "video")
 									{
 										//var vidFile ="lo/"+loName+"/"+fileName+fileExtension;
-										var vidFile ="lo/"+loName+"/"+fileName;
+										var vidFile ="lo/"+$scope.makeOneWord(loName)+"/"+fileName;
+										var vidFile2 ="lo/"+loName+"/"+fileName;
+										var temp = ""+fileName+fileExtension;
 										$.get(vidFile).
 										    done(function(data) {
 												$("#mainDiv").append("<video width='320' height='240' controls><source src="+vidFile+" type='video/mp4'>Your browser does not support the video tag.</video>");        
@@ -335,7 +359,7 @@
 										    fail(function() {
 										        //var vidDownload = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+fileNamed;
 										       	//window.location.href = vidDownload;
-										       	$("#mainDiv").append("<br>"+vidFile+" must be downloaded.<br>");
+										       	$("#mainDiv").append("<br>"+temp+" must be downloaded.<br>");
 										    });
 										
 									}
@@ -343,8 +367,8 @@
 								else {
 									if(d.type == "text")
 									{
-										//var txtFile ="lo/"+loName+"/"+fileName+fileExtension;
-										var txtFile ="lo/"+loName+"/"+fileName;
+										var txtFile ="lo/"+$scope.makeOneWord(loName)+"/"+fileName;
+										var txtFile2 ="lo/"+loName+"/"+fileName;
 										var temp = ""+fileName+fileExtension;
 										$.get(""+txtFile).
 										    done(function(data) {
@@ -357,8 +381,8 @@
 									}
 									else if(d.type == "image")
 									{
-										//var imgFile ="lo/"+loName+"/"+fileName+fileExtension;
-										var imgFile ="lo/"+loName+"/"+fileName;
+										var imgFile ="lo/"+$scope.makeOneWord(loName)+"/"+fileName;
+										var imgFile2 ="lo/"+loName+"/"+fileName;
 										var temp = ""+fileName+fileExtension;
 										$.get(imgFile).
 										    done(function(data) {
@@ -372,7 +396,8 @@
 									else if(d.type == "audio" || d.type == "music")
 									{
 										//var audFile ="lo/"+loName+"/"+fileName+fileExtension;
-										var audFile ="lo/"+loName+"/"+fileName;
+										var audFile ="lo/"+$scope.makeOneWord(loName)+"/"+fileName;
+										var audFile2 ="lo/"+loName+"/"+fileName;
 										var temp = ""+fileName+fileExtension;
 										$.get(audFile).
 										    done(function(data) {
@@ -387,7 +412,8 @@
 									else if(d.type == "video")
 									{
 										//var vidFile ="lo/"+loName+"/"+fileName+fileExtension;
-										var vidFile ="lo/"+loName+"/"+fileName;
+										var vidFile ="lo/"+$scope.makeOneWord(loName)+"/"+fileName;
+										var vidFile2 ="lo/"+loName+"/"+fileName;
 										var temp = ""+fileName+fileExtension;
 										$.get(vidFile).
 										    done(function(data) {
@@ -431,6 +457,30 @@
 						$("#mainDiv").append("<br>");
 					});*/
 				}
+
+				$scope.addRecord = function (userid,learningObjectId,next) {
+						var recordData = {
+							'userId':userid,
+							'learningObjectId':learningObjectId,
+							'dataDownload': Date.parse(new Date())
+					    };
+							$.ajax({
+		            
+						        	type : 'POST',
+						        	url : "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/downloadRecords/addRecord",
+						        	data: JSON.stringify(recordData),
+						            dataType: 'json',
+						            contentType: "application/json;charset=utf-8",
+						        	success: function(data, status, jqXHR) {
+						                next(data);
+						        	},
+						        	error: function(data, status, jqXHR) {
+						        		console.log("false" +data);
+						        		return false;
+						        	}
+        					});
+
+				}
 				
 				$scope.downloadLO = function(liableLearningObjects, LOid,id) {
 					$scope.arr = [];
@@ -444,36 +494,66 @@
 						}
 					});
 					if($scope.status == 'Online'){
-						var arr = liableLearningObjects[LOid];
-						var a = liableLearningObjects;
-						var b = LOid;
-						console.log(""+a+" "+arr);
-						alert('You are about to download '+arr.title);
-						alert('Please create the folder '+arr.title+' inside /lo folder to save the learning elements.');
-						for(var i=0;i<arr.sequence.length;i++){
-								var arrSeq = arr.sequence[i];
-								for(var k =0;k<arrSeq.length;k++){
-										//alert(arrSeq[k].id+arrSeq[k].fileExtension);
-										var req = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+arrSeq[k].id;
-											    	//window.location.href = req;
-					  					    	var win = window.open(req,'', "width=200, height=100");
-									  		if(win){
-											    //Browser has allowed it to be opened
-											    //win.focus();
-											    win.blur();
-											}else{
-											    //Broswer has blocked it
-											    alert('Please allow popups for this site');
-											}
+						$scope.addRecord($scope.quizUSERID,$scope.quizLOID,function(data){
+								if(data == true){
+										var arr = liableLearningObjects[LOid];
+																		var a = liableLearningObjects;
+																		var b = LOid;
+																		console.log(""+a+" "+arr);
+																		alert('You are about to download '+arr.title);
+																		alert('Please create the folder '+arr.title+' inside /lo folder to save the learning elements.');
+																		for(var i=0;i<arr.sequence.length;i++){
+																				var arrSeq = arr.sequence[i];
+																				for(var k =0;k<arrSeq.length;k++){
+																						//alert(arrSeq[k].id+arrSeq[k].fileExtension);
+																						var req = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+arrSeq[k].id;
+																							    	//window.location.href = req;
+																	  					    	var win = window.open(req,'', "width=200, height=100");
+																					  		if(win){
+																							    //Browser has allowed it to be opened
+																							    //win.focus();
+																							    win.blur();
+																							}else{
+																							    //Broswer has blocked it
+																							    alert('Please allow popups for this site');
+																							}
+																				}
+																		}
+
 								}
-						}
+								else {alert('Failed to download!');}	
+						});
+						//if($scope.addRecord($scope.quizUSERID,$scope.quizLOID)){
+								/*var arr = liableLearningObjects[LOid];
+								var a = liableLearningObjects;
+								var b = LOid;
+								console.log(""+a+" "+arr);
+								alert('You are about to download '+arr.title);
+								alert('Please create the folder '+arr.title+' inside /lo folder to save the learning elements.');
+								for(var i=0;i<arr.sequence.length;i++){
+										var arrSeq = arr.sequence[i];
+										for(var k =0;k<arrSeq.length;k++){
+												//alert(arrSeq[k].id+arrSeq[k].fileExtension);
+												var req = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+arrSeq[k].id;
+													    	//window.location.href = req;
+							  					    	var win = window.open(req,'', "width=200, height=100");
+											  		if(win){
+													    //Browser has allowed it to be opened
+													    //win.focus();
+													    win.blur();
+													}else{
+													    //Broswer has blocked it
+													    alert('Please allow popups for this site');
+													}
+										}
+								}*/
+							//}
+							//else {alert('Failed to download!');}
 					}
 					else {		
 						alert('Please connect online to download '+liableLearningObjects[LOid].title);
 					}
 				}
-
-				 
 
 				$scope.hey = function(){
 					alert($scope.pageLength);
@@ -532,15 +612,23 @@
 								port: $rootScope.port
 							});
 									localStorage["information"] = info;
-									var win = window.open("/quiz/index.html", '_blank');
-							if(win){
-							    //Browser has allowed it to be opened
-							    win.focus();
-							   // win.blur();
-							}else{
-							    //Broswer has blocked it
-							    alert('Please allow popups for this site');
-							}
+									var quizPath = "/lo/"+$scope.makeOneWord(loname)+"/quiz/index.html";
+									$.get(quizPath).
+										    done(function(quizPath) {//
+												var win = window.open("/lo/"+$scope.makeOneWord(loname)+"/quiz/index.html", '_blank');
+														if(win){
+														    //Browser has allowed it to be opened
+														    win.focus();
+														   // win.blur();
+														}else{
+														    //Broswer has blocked it
+														    alert('Please allow popups for this site');
+														}
+										    }).
+										    fail(function() {
+										       alert('Quiz file not found!');
+										    });
+									
 					}
 					else {
 						alert('Please login online');
