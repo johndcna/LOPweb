@@ -38,29 +38,29 @@ jQuery.sendEval = function(obj) {
 
 	var evalArr = [obj.getContentQuality(), obj.getLearningGoalAlign(), obj.getFeedback(), obj.getMotivation(), obj.getPresentationDesign(), obj.getInteractionUsability(), obj.getAccessibility(), obj.getReusability(), obj.getStandards() ];
 	var evaluation = {
-        //id:Userjson.id,
+        id:Userjson.id,
         evaluation: evalArr,
         learningObjectId:Userjson.learningObjectId,
         subject:Userjson.subject,
-        //errorList:null,
+        errorList:null,
        // loris:Userjson.loris,
         reviewId:Userjson.reviewId
     };
         $.ajax({
-            
-        	type : 'POST',
         	url : "http://"+Userjson.ip+":"+Userjson.port+"/InformatronYX/informatron/lori/submit",
-        	data: JSON.stringify(evaluation),//evaluation : JSON.stringify(evaluation)
-            dataType: 'json',
+            type : 'POST',
+            data: JSON.stringify(evaluation),//evaluation : JSON.stringify(evaluation)
             contentType: "application/json;charset=utf-8",
-        	success: function(data, status, jqXHR) {
+            dataType: 'json',
+        	success: function(response) {
                 console.log(evaluation);
+                console.log("response: "+response);
         		alert("sent!");
         	},
-        	error: function(data, status, jqXHR) {
+        	error: function(response) {
         		console.log(evaluation);
-                console.log(data);
-        		alert("errr!");
+                console.log("response: "+response);
+        		alert("");
         	}
         });
 

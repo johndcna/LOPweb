@@ -23,11 +23,10 @@
 		        $scope.myData = {};
 		        $scope.status = "Online";
 				$scope.downloadJSON = function(filename, text) {
-					
-					  var jsonPath = "userid/"+filename+".json";
+							
+					  var jsonPath = "userid/"+filename;
 					 				 $.get(jsonPath).
-										    done(function(data) {
-												
+										    done(function(data){ 	
 										    }).
 										    fail(function() {
 										        var element = document.createElement('a');
@@ -44,6 +43,8 @@
 							// for information
 									$rootScope.ip = "172.31.11.32";
 		           					$rootScope.port = "24119";
+        							//$rootScope.ip = "192.168.5.25";
+									//$rootScope.port = "44736";
 		           					if($scope.status == 'Online'){	
 				           					var data =  {
 				           						username : $scope.username,
@@ -160,7 +161,9 @@
 
         	controllers.TaskbarController = function($scope,$http,$rootScope){
         		$rootScope.ip = "172.31.11.32";
-		        $rootScope.port = "24119";
+				$rootScope.port = "24119";
+        		//$rootScope.ip = "192.168.5.25";
+		        //$rootScope.port = "44736";
         		$scope.data = JSON.parse(localStorage.getItem("jsonLogin"));
         		$scope.status = localStorage.getItem("LoginStatus");
         		$scope.name = $scope.data.username;
@@ -505,10 +508,36 @@
 																		for(var i=0;i<arr.sequence.length;i++){
 																				var arrSeq = arr.sequence[i];
 																				for(var k =0;k<arrSeq.length;k++){
-																						//alert(arrSeq[k].id+arrSeq[k].fileExtension);
-																						var req = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+arrSeq[k].id;
-																							    	//window.location.href = req;
+																						if(arrSeq[k].fileExtension == ".zip") {
+																							var req = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+arrSeq[k].id;
+																						
+																										/*var link = document.createElement('a');
+																										    if (typeof link.download === 'string') {
+																										        // Firefox requires the link to be in the body
+																										        //link.download = "quiz.zip";
+																										        link.href = req;
+																										        link.setAttribute('download', "quiz.zip");
+																										         document.body.appendChild(link);
+																										        link.click();
+																										        document.body.removeChild(link); // remove the link when done
+																										    } else {
+																										       // location.replace(uri);
+																										    }*/
+																	  					    	
+																	  					    	var win = window.open(req,'quiz', "width=500, height=500"); 					    	
+																								  		if(win){
+																										    //Browser has allowed it to be opened
+																										    //win.focus();
+																										    win.blur();
+																										}else{
+																										    //Broswer has blocked it
+																										    alert('Please allow popups for this site');
+																										}
+																						}else{
+																							var req = "http://"+$rootScope.ip+":"+$rootScope.port+"/InformatronYX/informatron/connect/download/le/"+$scope.quizUSERID+"/"+$scope.quizLOID+"/"+arrSeq[k].id;
+																					
 																	  					    	var win = window.open(req,'', "width=200, height=100");
+																	  					    	
 																					  		if(win){
 																							    //Browser has allowed it to be opened
 																							    //win.focus();
@@ -517,7 +546,8 @@
 																							    //Broswer has blocked it
 																							    alert('Please allow popups for this site');
 																							}
-																				}
+																						} 
+																				}//http://172.31.11.32:24119/InformatronYX/informatron/connect/download/le/56428c8afeba44564927f7e9/5626144ad134b707e29a1fb7/565d4d46febac69ab1f55e3e
 																		}
 
 								}
@@ -574,14 +604,14 @@
 					}
 				}
         	
-	        	$scope.goToLORI = function(id,learningObjectId,subject,loris,reviewId) {
+	        	$scope.goToLORI = function(id,learningObjectId,subject1,loris1,reviewId) {
 	        		if($scope.status == 'Online'){
 		        		var info = JSON.stringify({
 									ip: $rootScope.ip,
-									//id:id, 
+									id:id, 
 									learningObjectId: learningObjectId, 
-									subject: subject,
-									loris: loris,
+									subject: subject1,
+									loris: loris1,
 									reviewId: reviewId,
 									port:$rootScope.port
 								});
@@ -613,15 +643,16 @@
 							});
 									localStorage["information"] = info;
 									var quizPath = "/lo/"+$scope.makeOneWord(loname)+"/quiz/index.html";
+													var quizPath = "/lo/"+$scope.makeOneWord(loname)+"/quiz/index.html";
 									$.get(quizPath).
-										    done(function(quizPath) {//
-												var win = window.open("/lo/"+$scope.makeOneWord(loname)+"/quiz/index.html", '_blank');
-														if(win){
+										    done(function(quizPath) {// /lo/"+$scope.makeOneWord(loname)+"/565d4d46febac69ab1f55e3e/quiz/index.html
+												             var win = window.open("/lo/"+$scope.makeOneWord(loname)+"/quiz/index.html", '_blank');
+														if(win) {
 														    //Browser has allowed it to be opened
 														    win.focus();
 														   // win.blur();
 														}else{
-														    //Broswer has blocked it
+														    //Browser has blocked it
 														    alert('Please allow popups for this site');
 														}
 										    }).
@@ -652,7 +683,7 @@
 							//alert('yay' + object.id);
 							$.each(object.playlist, function(index, playlist){
 								$scope.currentPlaylist.push(playlist);
-							});
+						f	});
 						}
 					});
 				}
