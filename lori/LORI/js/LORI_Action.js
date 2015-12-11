@@ -48,10 +48,11 @@ jQuery.sendEval = function(obj) {
     };
         $.ajax({
         	url : "http://"+Userjson.ip+":"+Userjson.port+"/InformatronYX/informatron/lori/submit",
+            //url: "http://172.31.11.32:24119/InformatronYX/store/home",
             type : 'POST',
+            dataType: 'json',
             data: JSON.stringify(evaluation),//evaluation : JSON.stringify(evaluation)
             contentType: "application/json;charset=utf-8",
-            dataType: 'json',
         	success: function(response) {
                 console.log(evaluation);
                 console.log("response: "+response);
@@ -64,20 +65,23 @@ jQuery.sendEval = function(obj) {
         	}
         });
 
-             /* xhr = new XMLHttpRequest();
-      xhr.open("POST","http://"+Userjson.ip+":8080/InformatronYX/informatron/lori/submit",true);
-      xhr.send(evaluation);
-      console.log("wtf ! "+xhr.responseText);*/
-/*
-beforeSend: function(xhrObj){
+
+      /*xhr = new XMLHttpRequest();
+      xhr.open("POST","http://"+Userjson.ip+":"+Userjson.port+"/InformatronYX/informatron/lori/submit",true);
+      xhr.setRequestHeader("Accept","application/json");
+      xhr.setRequestHeader("Content-Type","application/json");
+      xhr.send(JSON.stringify(evaluation));
+      console.log("response ! "+xhr.responseText);*/
+
+/*beforeSend: function(xhrObj){
         xhrObj.setRequestHeader("Content-Type","application/json");
         xhrObj.setRequestHeader("Accept","application/json");
-    }
-    or
+    }*/
+/*    or
 
 headers:{
                         'Accept': 'application/json',
                         'Content-Type':'application/json'
-            },
-*/
+            },*/
+
 };
